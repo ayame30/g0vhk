@@ -1,0 +1,32 @@
+version: 2
+jobs:
+  deploy-gh-page:
+    environment:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:8.15.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache
+      - run:
+          name: Install packages
+          command: npm install
+      - save_cache:
+          key: dependency-cache
+          paths:
+            - ~/.cache/npm
+      - run:
+          name: Rebuild node-sass
+          command: npm rebuild node-sass
+      - run:
+          name: Deploy gh-page
+          command: npm run deploy
+workflows:
+  version: 2
+  build:
+    jobs:
+      - deploy-gh-page:
+          filters:
+            branches:
+              only: master
