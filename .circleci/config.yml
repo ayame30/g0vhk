@@ -20,6 +20,11 @@ jobs:
           name: Rebuild node-sass
           command: npm rebuild node-sass
       - run:
+          name: Set github identity
+          command: |
+            git config --global user.email "$GIT_EMAIL"
+            git config --global user.name "$GIT_NAME"
+      - run:
           name: Deploy gh-page
           command: npm run deploy
 workflows:
