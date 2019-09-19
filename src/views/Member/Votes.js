@@ -32,11 +32,11 @@ const data = [
 function Member({ history, match }) {
   const { id } = match.params;
   const [ member, setMember ] = useState({});
-  
+
   useEffect(() => {
     getMember(id).then(setMember);
   }, [id]);
-  
+
   return (
     <div className={classnames('animated fadeIn bg-white', styles.container)}>
       {data.map(d => (
@@ -56,7 +56,7 @@ function Member({ history, match }) {
             <span className="float-right text-right">
               <small>{d.date}</small>
               <div className={styles.memberVote}>
-                <img src="assets/img/avatars/1.jpg" className={styles.img}/>
+                <img src={member.avatar} className={styles.img} alt={member.name_ch}/>
                 <h3 className={classnames(styles.badge, { [styles.passed]: d.action })}>
                   <Badge color="primary">
                     <span>
