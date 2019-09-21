@@ -27,7 +27,7 @@ function SearchInput({ history }) {
   const onFocus = () => setShowResult(true);
   
   useEffect(() => {
-    if (keyword.length < 3) {
+    if (keyword.length < 1) {
       setShowResult(false);
       setResult([]);
       return;
@@ -43,16 +43,16 @@ function SearchInput({ history }) {
           <span className="input-group-text"><i className="fas fa-search" /></span>
         </InputGroupAddon>
         <Input placeholder="議員名稱" size="lg" value={keyword} onChange={onChangeKeyword} onFocus={onFocus}/>
-      </InputGroup>
-      <div className={classnames(styles.searchResultWrapper, { 'd-none': !showResult })}>
-        <div className={styles.searchResult}>
-          <Table hover responsive className="table-outline mb-0 d-sm-table">
-            <tbody>
-              {result.map(member => <Row member={member} key={`member-${member.id}`} />)}
-            </tbody>
-          </Table>
+        <div className={classnames(styles.searchResultWrapper, { 'd-none': !showResult })}>
+          <div className={styles.searchResult}>
+            <Table hover responsive className="table-outline mb-0 d-sm-table">
+              <tbody>
+                {result.map(member => <Row member={member} key={`member-${member.id}`} />)}
+              </tbody>
+            </Table>
+          </div>
         </div>
-      </div>
+      </InputGroup>
     </>
   );
 }

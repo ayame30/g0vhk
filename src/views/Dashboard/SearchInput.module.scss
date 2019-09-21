@@ -4,14 +4,14 @@
   background-color: #F7FAFB;
 }
 .searchResultWrapper {
-  padding-right: 15px;
-  padding-left: 15px;
   border-radius: 0.25rem;
   width: 100%;
   position: absolute;
   top: 100%;
   left: 0;
   z-index: 1;
+  max-height: 400px;
+  overflow: overlay;
   // display: none;
 }
 .avatar {
