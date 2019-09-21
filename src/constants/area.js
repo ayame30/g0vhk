@@ -11,6 +11,8 @@ import KowloonWestConstituency from './map/kw.svg';
 import NewTerritoriesEastConstituency from './map/nte.svg';
 import KowloonEastConstituency from './map/ke.svg';
 import NewTerritoriesWestConstituency from './map/ntw.svg';
+import FnSvg from './district/group.svg';
+
 
 export default [
   {
@@ -46,6 +48,7 @@ export default [
   {
     id: 'fnc',
     label: '功能',
+    map: FnSvg,
     img: fnc,
   },
 ]
