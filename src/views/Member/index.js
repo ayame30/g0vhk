@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+
 import getMember from 'api/member';
 import {
-  Badge,
+  Badge, Breadcrumb, BreadcrumbItem
 } from 'reactstrap';
 import classnames from 'classnames';
 import Tabs from './Tabs';
@@ -17,7 +19,13 @@ function Member({ history, match }) {
   }, [id]);
   
   return (
-    <>
+    <div className={styles.root}>
+      <Breadcrumb>
+        <BreadcrumbItem active><Link to="/">主頁</Link></BreadcrumbItem>
+        <BreadcrumbItem active><Link to="/area/ke">九龍東</Link></BreadcrumbItem>
+        <BreadcrumbItem active>{member.name}</BreadcrumbItem>
+
+      </Breadcrumb>
       <div className={classnames('animated fadeIn bg-white row', styles.info)}>
         <div className={classnames(styles.avatar, 'col-md-auto')} style={{ 'background-image': `url(${member.avatar})`}}>
           <div className={styles.party}>{member.party}</div>
@@ -46,8 +54,8 @@ function Member({ history, match }) {
           </div>
         </div>
       </div>
-      <Tabs id={id} />
-    </>
+      <Tabs id={id} member={member} />
+    </div>
   );
 }
 

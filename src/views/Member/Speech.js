@@ -7,7 +7,7 @@ function Member({ history, match }) {
 
 
   return (
-    <div className={classnames('animated fadeIn bg-white row', styles.info)}>
+    <div className={classnames('animated fadeIn row', styles.info)}>
       Speech
     </div>
   );

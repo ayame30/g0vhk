@@ -23,46 +23,52 @@ export default function (id) {
 export function voteHistory(id) {
   return delayResponse([
     {
-      id: '12434',
+      id: '12312',
+      voteResult: 'passed',
       name: '逃犯條例修訂案',
-      date: '2019/04/23',
-      result: 'passed',
-      vote: 'agree'
+      date: '23/04/2019',
+      action: 'agree',
+      avatar: 'assets/img/avatars/1.jpg',
     },
     {
-      id: '124334',
+      id: '12312',
+      voteResult: 'passed',
       name: '逃犯條例修訂案',
-      date: '2019/04/23',
-      result: 'negatived',
-      vote: 'disagree'
+      date: '23/04/2019',
+      action: 'absent', //TODO
+      avatar: 'assets/img/avatars/1.jpg',
     },
     {
-      id: '124324',
+      id: '12312',
+      voteResult: 'negatived',
       name: '逃犯條例修訂案',
-      date: '2019/04/23',
-      result: 'negatived',
-      vote: 'abstention'
+      date: '23/04/2019',
+      action: 'disagree', //TODO
+      avatar: 'assets/img/avatars/1.jpg',
     },
     {
-      id: '12434',
+      id: '12312',
+      voteResult: 'passed',
       name: '逃犯條例修訂案',
-      date: '2019/04/23',
-      result: 'passed',
-      vote: 'agree'
+      date: '23/04/2019',
+      action: 'abstention', //TODO
+      avatar: 'assets/img/avatars/1.jpg',
     },
     {
-      id: '124334',
+      id: '12312',
+      voteResult: 'negatived',
       name: '逃犯條例修訂案',
-      date: '2019/04/23',
-      result: 'negatived',
-      vote: 'disagree'
+      date: '23/04/2019',
+      action: 'disagree', //TODO
+      avatar: 'assets/img/avatars/1.jpg',
     },
     {
-      id: '124324',
+      id: '12312',
+      voteResult: 'passed',
       name: '逃犯條例修訂案',
-      date: '2019/04/23',
-      result: 'negatived',
-      vote: 'abstention'
+      date: '23/04/2019',
+      action: 'abstention', //TODO
+      avatar: 'assets/img/avatars/1.jpg',
     }
   ]);  
 }

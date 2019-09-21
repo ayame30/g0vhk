@@ -4,14 +4,15 @@ import { Route, Switch, Link } from 'react-router-dom';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import Votes from './Votes';
 import Speech from './Speech';
+import styles from './Tabs.module.scss';
 
-function Member({ history, match, id }) {
+function Tabs({ history, match, id, member }) {
   const { url } = match;
   const isActive = url => !!(url === history.location.pathname);
   return (
     <>
-      <div className="bg-white">
-        <Nav tabs styles={{ width: '100%'}}>
+      <div className="bg-white pt-3">
+        <Nav tabs style={{ width: '100%'}}>
           <NavItem>
             <Link to={url}>
               <NavLink
@@ -58,12 +59,14 @@ function Member({ history, match, id }) {
           </NavItem>
         </Nav>
       </div>
-      <Switch>
-        <Route exact path={url} name="投票" render={Votes} />
-        <Route exact path={`${url}/speech`} name="發言" render={Speech} />
-      </Switch>
+      <div className={styles.tabContent}>
+        <Switch>
+          <Route exact path={url} name="投票" render={() => <Votes member={member} />} />
+          <Route exact path={`${url}/speech`} name="發言" render={Speech} />
+        </Switch>
+      </div>
     </>
   );
 }
 
-export default withRouter(Member);
+export default withRouter(Tabs);

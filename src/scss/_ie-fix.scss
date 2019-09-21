@@ -1,6 +1,12 @@
 html body .app.flex-row.align-items-center {
   height: 100vh;
 }
+html, body {
+  height: 100%;
+}
+#root, .app {
+  height: 100%;
+}
 
 // ie11 floating footer temp fix, react only
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

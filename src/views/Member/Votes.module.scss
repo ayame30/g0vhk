@@ -1,26 +1,44 @@
-.vote {
-  width: 100%;
-  vertical-align: middle;
-  padding: 12px 15px;
-  background: rgb(255, 235, 235);
-  span {
-    display: inline-block;
-  }
-  h5, h3 {
-    margin: 0;
-  }
-  &.passed {
-    background: rgb(237, 255, 240);
-  }
-}
 .card {
   margin: 10px 0;
+  .vote {
+    width: 100%;
+    vertical-align: middle;
+    padding: 12px 15px;
+    background: rgb(248,248,248);
+    span {
+      display: inline-block;
+    }
+    h5, h3 {
+      margin: 0;
+    }
+  }
+  &.passed {
+    border-color: rgb(105, 172, 142);
+    .vote {
+      background: rgb(250, 255, 251);
+      .voteResultBadge {
+        background: rgb(86, 193, 104);
+      }
+    }
+  }
+  &.negatived {
+    border-color: rgb(189, 163, 163);
+    .vote {
+      background: rgb(255, 249, 249);
+      .voteResultBadge {
+        background: rgb(237, 136, 136);
+      }
+    }
+  }
 }
 .container {
   padding: 10px;
 }
 .img {
   height: 30px;
+  width: 30px;
+  background-position: center top;
+  background-size: cover;
   display: inline-block;
   border: 1px rgba(255, 255, 255, 0.3) solid;
   border-radius: 40px;
@@ -37,24 +55,41 @@
   padding: 0;
   padding-left: 5px;
   :global(.badge) {
-    background-color: rgb(185, 69, 54);
+    background-color: rgb(154, 154, 154);
     position: relative;
+    min-width: 74px;
     &::before {
       content: "";
       position: absolute;
       right: 100%;
       top: 50%;
       margin-top: -6px;
-      border-right: rgb(185, 69, 54) 5px solid;
+      border-right: rgb(154, 154, 154) 5px solid;
       border-top: transparent 6px solid;
       border-bottom: transparent 6px solid;
     }
   }
-  &.passed {
+  &.agree {
     :global(.badge) {
-      background-color:rgb(25, 156, 23);
+      background-color:rgb(52, 177, 51);
       &::before {
-        border-right: rgb(25, 156, 23) 5px solid;
+        border-right: rgb(52, 177, 51) 5px solid;
+      }
+    }
+  }
+  // &.absent {
+  //   :global(.badge) {
+  //     background-color:rgb(154, 154, 154);
+  //     &::before {
+  //       border-right: rgb(154, 154, 154) 5px solid;
+  //     }
+  //   }
+  // }
+  &.disagree {
+    :global(.badge) {
+      background-color:rgb(210, 65, 65);
+      &::before {
+        border-right: rgb(210, 65, 65) 5px solid;
       }
     }
   }

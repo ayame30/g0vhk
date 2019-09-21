@@ -1,3 +1,9 @@
+.root {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
 .info {
   padding: 10px;
   background: #fff;
@@ -8,7 +14,7 @@
   width: 90px;
   height: 90px;
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
   border-radius: 4px;
   overflow: hidden;
