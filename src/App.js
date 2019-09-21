@@ -10,7 +10,7 @@ const Dashboard = React.lazy(() => import('./views/Dashboard'));
 
 const routes = [
   { path: '/', exact: true, name: '主頁', component: Dashboard },
-  { path: '/members', exact: true, name: '選區議員名單', component: MemberList },
+  { path: '/area/:area', exact: true, name: '選區議員名單', component: MemberList },
   { path: '/members/:id', name: '議員', component: Member },
 ];
 

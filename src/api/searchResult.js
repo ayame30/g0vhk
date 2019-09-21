@@ -58,3 +58,16 @@ export default function (keyword = '') {
   //   }
   // ]);
 }
+export function findByArea(area = '') {
+  return delayResponse(
+    members
+      .map(m => ({
+        id: m.id,
+        name: m.name_ch,
+        avatar: `https://g0vhk.io${m.image}`,
+        party: m.party && m.party.name_ch,
+        attendance: '50%',
+        lastAction: m.id % 2 ? 'agree' : 'disagree',
+      }))
+    )
+} 

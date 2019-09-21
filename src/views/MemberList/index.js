@@ -1,49 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { findByArea } from 'api/searchResult';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+import areaConstant from 'constants/area';
+
 import {
   Badge,
   Table,
 } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
-const result = [
-  {
-    id: '123',
-    name: '陳方安生',
-    avatar: 'assets/img/avatars/1.jpg',
-    party: '新民黨',
-    attendance: '50%',
-    lastAction: 'agree',
-  },
-  {
-    id: '1233',
-    name: '葉劉淑儀',
-    avatar: 'assets/img/avatars/1.jpg',
-    party: '新民黨',
-    attendance: '30%',
-    lastAction: 'disagree',
-  },
-  {
-    id: '1234',
-    name: '田北辰',
-    avatar: 'assets/img/avatars/1.jpg',
-    party: '新民黨',
-    attendance: '20%',
-    lastAction: 'abstention',
-  },
-  {
-    id: '1235',
-    name: '田北辰',
-    avatar: 'assets/img/avatars/1.jpg',
-    party: '新民黨',
-    attendance: '20%',
-    lastAction: 'absent',
-  }
-];
-
-function Member({ history }) {
+function MemberList({ history, match }) {
+  const { area } = match.params;
+  const [ result, setResult ] = useState([]);
+  
+  const areaName = areaConstant.find(a => a.id === area).label;
+  
+  useEffect(() => {
+    findByArea(area).then(setResult);
+  }, [area]);
+  
   return (
     <div className="animated fadeIn bg-white">
-
+      <Breadcrumb>
+        <BreadcrumbItem active><Link to="/">主頁</Link></BreadcrumbItem>
+        <BreadcrumbItem active>{areaName}</BreadcrumbItem>
+      </Breadcrumb>
       <Table hover responsive className="table-outline mb-0 d-sm-table">
         <thead className="thead-light">
         <tr>
@@ -86,4 +68,4 @@ function Member({ history }) {
   );
 }
 
-export default withRouter(Member);
+export default withRouter(MemberList);

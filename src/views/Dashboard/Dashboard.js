@@ -29,7 +29,7 @@ function Dashboard({ history }) {
               <Col sm={4} lg={3} xs={6} className="px-2 my-1" key={loc.id}>
                 <Card
                   className={`m-0 bg-primary text-dark text-center pointer ${styles.button}`}
-                  onClick={() => { history.push(`/members?area=${loc.id}`)}}
+                  onClick={() => { history.push(`/area/${loc.id}`)}}
                   style={{ 'background-image': `url(${loc.img})`, position: 'relative' }}
                 >
                   <CardBody>
