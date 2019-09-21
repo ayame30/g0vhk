@@ -3,7 +3,6 @@ import {
   Card,
   CardBody,
   Col,
-  Container,
   Row,
 } from 'reactstrap';
 import styles from './Dashboard.module.scss';
