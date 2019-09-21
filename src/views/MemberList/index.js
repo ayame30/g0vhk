@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { findByArea } from 'api/searchResult';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
+import { Badge, Table, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { findByArea } from 'api/searchResult';
 import areaConstant from 'constants/area';
-
-import {
-  Badge,
-  Table,
-} from 'reactstrap';
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import actionConstant from 'constants/action';
+import styles from './index.module.scss';
 
 function MemberList({ history, match }) {
   const { area } = match.params;
@@ -21,7 +19,7 @@ function MemberList({ history, match }) {
   }, [area]);
   
   return (
-    <div className="animated fadeIn bg-white">
+    <div className={styles.root}>
       <Breadcrumb>
         <BreadcrumbItem active><Link to="/">主頁</Link></BreadcrumbItem>
         <BreadcrumbItem active>{areaName}</BreadcrumbItem>
@@ -35,7 +33,8 @@ function MemberList({ history, match }) {
           <th className="text-center">最近表決</th>
         </tr>
         </thead>
-        <tbody>
+
+        <tbody className={classnames('animated fadeIn bg-white', styles.list)}>
           {result.map(r => (
             <tr className="pointer" onClick={() => history.push(`/members/${r.id}`)}>
               <td className="text-center">
@@ -58,7 +57,10 @@ function MemberList({ history, match }) {
                 </div>
               </td>
               <td className="text-center h4">
-                <Badge color="danger">{r.lastAction}</Badge>
+                <Badge className={styles[r.lastAction]}>
+                  <i className={classnames('mr-2', actionConstant[r.lastAction].iconClass)} />
+                  {actionConstant[r.lastAction].label}
+                </Badge>
               </td>
             </tr>
           ))}

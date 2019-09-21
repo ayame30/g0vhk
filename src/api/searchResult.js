@@ -20,7 +20,7 @@ export default function (keyword = '') {
         avatar: `https://g0vhk.io${m.image}`,
         party: m.party && m.party.name_ch,
         attendance: '50%',
-        lastAction: m.id % 2 ? 'agree' : 'disagree',
+        lastAction: ['agree', 'disagree', 'abstention', 'absent'][m.id % 4],
       }))
     )
   // return delayResponse([
@@ -67,7 +67,7 @@ export function findByArea(area = '') {
         avatar: `https://g0vhk.io${m.image}`,
         party: m.party && m.party.name_ch,
         attendance: '50%',
-        lastAction: m.id % 2 ? 'agree' : 'disagree',
+        lastAction: ['agree', 'disagree', 'abstention', 'absent'][m.id % 4],
       }))
     )
 } 

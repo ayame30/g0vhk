@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.list {
+  flex: 2;
+  overflow: auto;
+}
+.agree {
+  background: rgb(52, 177, 51);
+}
+.disagree {
+  background: rgb(210, 65, 65);
+}
+.absent {
+  background: rgb(154, 154, 154);
+}
+.abstention {
+  background: rgb(154, 154, 154);
+}
