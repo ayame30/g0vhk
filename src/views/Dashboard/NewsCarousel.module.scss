@@ -16,9 +16,14 @@
 }
 .caption {
   background: #000;
-  padding: 30px 25px;
+  padding: 20px 25px;
   color: #fff;
   margin-top: -25px;
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(0,0,0,1) 83%, rgba(0,0,0,0) 100%);
+  p {
+    white-space: nowrap;   
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
