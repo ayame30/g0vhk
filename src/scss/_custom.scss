@@ -2,6 +2,12 @@
 button:focus {
   outline: 1px auto -webkit-focus-ring-color;
 }
+@media (max-width: 991.98px) {
+  .app-body {
+      margin-top: 0;
+      padding-top: 55px;
+  }
+}
 hr {
   height: 0;
   border-top: 1px solid #ccc;
