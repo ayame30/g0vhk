@@ -34,6 +34,7 @@ function MemberList({ history, match }) {
       <div className={styles.list}>
         {result
           .sort((a, b) => {
+            if (typeof a[sortingBy] == 'number') return (a[sortingBy] - b[sortingBy]) * (ascending ? 1 : -1);
             return a[sortingBy].localeCompare(b[sortingBy]) * (ascending ? 1 : -1);
           })
           .map(r => (
@@ -52,7 +53,7 @@ function MemberList({ history, match }) {
                   </div> : null}
               </Col>
               <Col className={styles.flexFixed}>
-                <strong>{r.attendance}</strong>
+                <strong>{r.attendanceRate}%</strong>
               </Col>
               <Col className={classnames('h4', styles.flexFixed)}>
                 <Badge className={styles[r.lastAction]}>

@@ -33,7 +33,7 @@ function Heading({ onChange, ascending, sortingBy }) {
       </Col>
       <Col className={styles.flexFixed}>
         出席率
-        <Sorting name="attendance" onClick={onChange} activeName={sortingBy} ascending={ascending} />
+        <Sorting name="attendanceRate" onClick={onChange} activeName={sortingBy} ascending={ascending} />
       </Col>
       <Col className={styles.flexFixed}>
         最近表決

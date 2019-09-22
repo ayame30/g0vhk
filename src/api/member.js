@@ -9,13 +9,15 @@ export default function (id) {
   return delayResponse({
     id: id,
     name: member.name_ch,
+    name_en: member.name_en,
     avatar: `https://g0vhk.io${member.image}`,
     party: member.party && member.party.name_ch,
-    attendance: '50%',
-    vote: '12.2%',
+    attendanceRate: 50,
+    voteRate: 12.2,
+    questionRate: 19.7,
     lastAction: 'agree',
     tags: [
-      '建制', '功能組別'
+      '建制', '功能組別','建制', '功能組別','建制', '功能組別'
     ]
   });  
 }

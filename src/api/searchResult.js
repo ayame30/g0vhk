@@ -19,7 +19,8 @@ export default function (keyword = '') {
         name: m.name_ch,
         avatar: `https://g0vhk.io${m.image}`,
         party: m.party && m.party.name_ch,
-        attendance: `${m.id % 100}%`,
+        attendanceRate: m.id % 100,
+        voteRate: m.id % 100,
         lastAction: ['agree', 'disagree', 'abstention', 'absent'][m.id % 4],
       }))
     )
@@ -32,7 +33,8 @@ export function findByArea(area = '') {
         name: m.name_ch,
         avatar: `https://g0vhk.io${m.image}`,
         party: m.party && m.party.name_ch,
-        attendance: `${m.id % 100}%`,
+        attendanceRate: m.id % 100,
+        voteRate: m.id % 100,
         lastAction: ['agree', 'disagree', 'abstention', 'absent'][m.id % 4],
       }))
     )
