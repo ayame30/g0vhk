@@ -60,7 +60,7 @@ function Member({ member }) {
       </section>
       <section>
         <Row>
-          <Col>
+          <Col className="p-0">
             <h5>公職</h5>
             <ul>
               <li>專責委員會副主席</li>
@@ -68,7 +68,7 @@ function Member({ member }) {
               <li>專責委員會副主席</li>
             </ul>
           </Col>
-          <Col>
+          <Col className="p-0">
             <h5>委員會職務</h5>
             <ul>
               <li>專責委員會副主席</li>
@@ -78,7 +78,7 @@ function Member({ member }) {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="p-0">
             <h5>私人職務</h5>
             <ul>
               <li>專責委員會副主席</li>
