@@ -14,3 +14,15 @@
     text-decoration: underline;
   }
 }
+.relative {
+  a {
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    min-width: 50px;
+    text-align: center;
+    div {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import Avatar from 'components/Avatar';
 import getMember from 'api/member';
-import { Badge, Breadcrumb, BreadcrumbItem, Row, Col } from 'reactstrap';
+import { Badge, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import classnames from 'classnames';
 import Tabs from './Tabs';
 import styles from './index.module.scss';
@@ -29,9 +29,14 @@ function Member({ history, match }) {
           <div className={classnames('row justify-content-between', styles.topLineFlex)}>
             <div className={styles.infoText}>
               <h3>{member.name} <h6>{member.name_en}</h6></h3>
-              <div>電郵: hello@hello.com</div>
-              <div>電話: 23382338</div>
               <div>政黨: {member.party}</div>
+              {member.tags ?
+                <div className={classnames(styles.tags)}>
+                  <div>分類: 
+                    {member.tags.map(t => <h5><Badge color="primary">{t}</Badge></h5>)}
+                  </div>
+                </div>
+              : null} 
             </div>
           </div>
         </div>
@@ -45,30 +50,6 @@ function Member({ history, match }) {
             <span className={styles.label}>投票率</span>
           </div>
         </div>
-      </div>
-      <hr />
-      <div className={classnames('animated fadeIn bg-white pt-2', styles.relative)}>
-        <Row>
-          <Col>
-            <div>類近政見議員:</div>
-            <div className="pt-1">
-              <Link to="/"><Avatar src={member.avatar} className="sm" /></Link>
-              <Link to="/"><Avatar src={member.avatar} className="sm" /></Link>
-              <Link to="/"><Avatar src={member.avatar} className="sm" /></Link>
-              <Link to="/"><Avatar src={member.avatar} className="sm" /></Link>
-            </div>
-          </Col>
-          <Col>
-            {member.tags ?
-              <div className={classnames(styles.tags)}>
-                <div>分類:</div>
-                <div className="pt-1">
-                  {member.tags.map(t => <h5><Badge color="primary">{t}</Badge></h5>)}
-                </div>
-              </div>
-            : null} 
-          </Col>
-        </Row>
       </div>
       <Tabs id={id} member={member} />
     </div>

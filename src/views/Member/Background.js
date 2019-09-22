@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router';
 import { Modal, ModalHeader, ModalBody, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
+
 import NumberHighlight from 'components/NumberHighlight';
+import Avatar from 'components/Avatar';
 import styles from './Background.module.scss';
 
 function Member({ member }) {
@@ -45,6 +48,15 @@ function Member({ member }) {
           <Col><NumberHighlight loading={false} amount={member.speechCount} unit="次" title="發言" color="warning" /></Col>
           <Col><NumberHighlight loading={false} amount={member.amendmentCount} unit="次" title="提出修正案" color="primary" /></Col>
         </Row>
+      </section>
+      <section>
+        <h5>投票意向相似之議員</h5>
+        <div className={styles.relative}>
+          <Link to="/"><Avatar src={member.avatar} className="sm" /><div>{member.name}</div></Link>
+          <Link to="/"><Avatar src={member.avatar} className="sm" /><div>{member.name}</div></Link>
+          <Link to="/"><Avatar src={member.avatar} className="sm" /><div>{member.name}</div></Link>
+          <Link to="/"><Avatar src={member.avatar} className="sm" /><div>{member.name}</div></Link>
+        </div>
       </section>
       <section>
         <Row>

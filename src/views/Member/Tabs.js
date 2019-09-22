@@ -14,7 +14,7 @@ function Tabs({ history, match, id, member }) {
   const isActive = url => !!(url === history.location.pathname);
   return (
     <>
-      <div className="bg-white pt-3">
+      <div className="bg-white">
         <Nav tabs className={styles.navTab}>
           <NavItem>
             <Link to={url}>
