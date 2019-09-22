@@ -1,0 +1,23 @@
+.card {
+  margin: 10px 0;
+  width: 100%;
+  .vote {
+    width: 100%;
+    vertical-align: middle;
+    padding: 12px 15px;
+    background: rgb(248,248,248);
+    span {
+      display: inline-block;
+    }
+    h5, h3 {
+      margin: 0;
+    }
+  }
+}
+.container {
+  padding: 10px;
+  overflow: hidden;
+  :global(.row) {
+    margin:0;
+  }
+}

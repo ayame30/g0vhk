@@ -8,6 +8,7 @@ import styles from './Tabs.module.scss';
 const Background = React.lazy(() => import('./Background'));
 const Votes = React.lazy(() => import('./Votes'));
 const Speech = React.lazy(() => import('./Speech'));
+const News = React.lazy(() => import('./News'));
 
 function Tabs({ history, match, id, member }) {
   const { url } = match;
@@ -79,6 +80,7 @@ function Tabs({ history, match, id, member }) {
             <Route exact path={url} name="背景" render={() => <Background member={member} />} />
             <Route exact path={`${url}/votes`} name="投票" render={() => <Votes member={member} />} />
             <Route exact path={`${url}/speech`} name="發言" render={() => <Speech member={member} />} />
+            <Route exact path={`${url}/news`} name="新聞" render={() => <News member={member} />} />
           </Switch>
         </React.Suspense>
       </div>

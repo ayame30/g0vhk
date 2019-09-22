@@ -3,10 +3,14 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
+  :global(.row) {
+    margin: 0;
+  }
 }
 .list {
   flex: 2;
   overflow: auto;
+  padding-bottom: 100px;
 }
 .avatar {
   background-position: center top;
@@ -32,7 +36,7 @@
 .tableHeading {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 6px 2px;
   background: var(--gray);
   align-items: center;
   font-weight: 700;
@@ -41,15 +45,16 @@
 .tableRow {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 10px 2px;
   align-items: center;
   background: var(--white);
   border-bottom: 1px #ddd solid;
 }
 .flexFixed {
-  flex: 0 0 50px;
+  flex: 0 0 90px;
   text-align: left;
   white-space: nowrap;
+  padding: 0 5px;
 }
 .flexExpand {
   flex: 2;
