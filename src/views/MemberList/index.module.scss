@@ -8,6 +8,14 @@
   flex: 2;
   overflow: auto;
 }
+.avatar {
+  background-position: center top;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  border-radius: 4px;
+  display: inline-block;
+}
 .agree {
   background: rgb(52, 177, 51);
 }
@@ -19,4 +27,37 @@
 }
 .abstention {
   background: rgb(154, 154, 154);
+}
+
+.tableHeading {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  background: var(--gray);
+  align-items: center;
+  font-weight: 700;
+  color: #fff;
+}
+.tableRow {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  align-items: center;
+  background: var(--white);
+  border-bottom: 1px #ddd solid;
+}
+.flexFixed {
+  flex: 0 0 100px;
+  text-align: left;
+  white-space: nowrap;
+}
+.flexExpand {
+  flex: 2;
+}
+.sortButton {
+  display: inline-block;
+  color: #fff;
+  :global(.fa-sort){
+    opacity: 0.5;
+  }
 }

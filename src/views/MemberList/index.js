@@ -2,18 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
-import { Badge, Table, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Badge, Breadcrumb, BreadcrumbItem, Row, Col } from 'reactstrap';
 import { findByArea } from 'api/searchResult';
 import areaConstant from 'constants/area';
 import actionConstant from 'constants/action';
+import Heading from './Heading';
 import styles from './index.module.scss';
 
 function MemberList({ history, match }) {
   const { area } = match.params;
   const [ result, setResult ] = useState([]);
+  const [ sortingBy, setSortingBy ] = useState('name');
+  const [ ascending, setAscending ] = useState(true);
   
   const areaName = areaConstant.find(a => a.id === area).label;
-  
+  const onSortingChange = (name, ascending) => {
+    setAscending(ascending);
+    setSortingBy(name);
+  }
   useEffect(() => {
     findByArea(area).then(setResult);
   }, [area]);
@@ -24,48 +30,39 @@ function MemberList({ history, match }) {
         <BreadcrumbItem active><Link to="/">主頁</Link></BreadcrumbItem>
         <BreadcrumbItem active>{areaName}</BreadcrumbItem>
       </Breadcrumb>
-      <Table hover responsive className="table-outline mb-0 d-sm-table">
-        <thead className="thead-light">
-        <tr>
-          <th className="text-center"><i className="icon-people"></i></th>
-          <th>議員姓名</th>
-          <th className="text-center">出席率</th>
-          <th className="text-center">最近表決</th>
-        </tr>
-        </thead>
-
-        <tbody className={classnames('animated fadeIn bg-white', styles.list)}>
-          {result.map(r => (
-            <tr className="pointer" onClick={() => history.push(`/members/${r.id}`)}>
-              <td className="text-center">
-                <div className="avatar">
-                  <img src={r.avatar} className="img-avatar" alt={r.name}/>
-                </div>
-              </td>
-              <td>
-                <div className="py-0 h4">{r.name}</div>
-                <div className="small mb-1">
-                  <i className="flag-icon flag-icon-us h6 mb-0" title="us" id="us"></i>
-                  <span className="h6 px-1">
-                    {r.party}
-                  </span>
-                </div>
-              </td>
-              <td>
-                <div className="text-center">
-                  <strong>{r.attendance}</strong>
-                </div>
-              </td>
-              <td className="text-center h4">
+      <Heading ascending={ascending} sortingBy={sortingBy} onChange={onSortingChange} />
+      <div className={styles.list}>
+        {result
+          .sort((a, b) => {
+            return a[sortingBy].localeCompare(b[sortingBy]) * (ascending ? 1 : -1);
+          })
+          .map(r => (
+            <Row className={classnames('pointer', styles.tableRow)} onClick={() => history.push(`/members/${r.id}`)}>
+              <Col className={classnames('text-center', styles.flexFixed)}>
+                <div className={styles.avatar} style={{ backgroundImage: `url(${r.avatar})`}} />
+              </Col>
+              <Col classnames={styles.flexExpand}>
+                <div className={classnames('py-0 h4')}>{r.name}</div>
+                {r.party ?
+                  <div className="small mb-1">
+                    <i className="flag-icon flag-icon-us h6 mb-0" title="us" id="us"></i>
+                    <span className="h6 px-1">
+                      {r.party}
+                    </span>
+                  </div> : null}
+              </Col>
+              <Col className={styles.flexFixed}>
+                <strong>{r.attendance}</strong>
+              </Col>
+              <Col className={classnames('h4', styles.flexFixed)}>
                 <Badge className={styles[r.lastAction]}>
                   <i className={classnames('mr-2', actionConstant[r.lastAction].iconClass)} />
                   {actionConstant[r.lastAction].label}
                 </Badge>
-              </td>
-            </tr>
+              </Col>
+            </Row>
           ))}
-        </tbody>
-      </Table>
+      </div>
     </div>
   );
 }

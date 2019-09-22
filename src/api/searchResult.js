@@ -19,44 +19,10 @@ export default function (keyword = '') {
         name: m.name_ch,
         avatar: `https://g0vhk.io${m.image}`,
         party: m.party && m.party.name_ch,
-        attendance: '50%',
+        attendance: `${m.id % 100}%`,
         lastAction: ['agree', 'disagree', 'abstention', 'absent'][m.id % 4],
       }))
     )
-  // return delayResponse([
-  //   {
-  //     id: '123',
-  //     name: '陳方安生',
-  //     avatar: 'assets/img/avatars/1.jpg',
-  //     party: '新民黨',
-  //     attendance: '50%',
-  //     lastAction: 'agree',
-  //   },
-  //   {
-  //     id: '1233',
-  //     name: '葉劉淑儀',
-  //     avatar: 'assets/img/avatars/1.jpg',
-  //     party: '新民黨',
-  //     attendance: '30%',
-  //     lastAction: 'disagree',
-  //   },
-  //   {
-  //     id: '1234',
-  //     name: '田北辰',
-  //     avatar: 'assets/img/avatars/1.jpg',
-  //     party: '新民黨',
-  //     attendance: '20%',
-  //     lastAction: 'abstention',
-  //   },
-  //   {
-  //     id: '1235',
-  //     name: '田北辰',
-  //     avatar: 'assets/img/avatars/1.jpg',
-  //     party: '新民黨',
-  //     attendance: '20%',
-  //     lastAction: 'absent',
-  //   }
-  // ]);
 }
 export function findByArea(area = '') {
   return delayResponse(
@@ -66,7 +32,7 @@ export function findByArea(area = '') {
         name: m.name_ch,
         avatar: `https://g0vhk.io${m.image}`,
         party: m.party && m.party.name_ch,
-        attendance: '50%',
+        attendance: `${m.id % 100}%`,
         lastAction: ['agree', 'disagree', 'abstention', 'absent'][m.id % 4],
       }))
     )
