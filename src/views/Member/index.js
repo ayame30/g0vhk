@@ -24,12 +24,11 @@ function Member({ history, match }) {
         <BreadcrumbItem active>{member.name}</BreadcrumbItem>
       </Breadcrumb>
       <div className={classnames('animated fadeIn bg-white row', styles.info)}>
-        <Avatar src={member.avatar} className="md" />
+        <Avatar src={member.avatar} party={member.party} />
         <div className={classnames('col', styles.topLine)}>
           <div className={classnames('row justify-content-between', styles.topLineFlex)}>
             <div className={styles.infoText}>
               <h3>{member.name} <h6>{member.name_en}</h6></h3>
-              <div>政黨: {member.party}</div>
               {member.tags ?
                 <div className={classnames(styles.tags)}>
                   <div>分類: 
