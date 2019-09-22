@@ -2,9 +2,11 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { Route, Switch, Link } from 'react-router-dom';
 import { Nav, NavItem, NavLink } from 'reactstrap';
-import Votes from './Votes';
-import Speech from './Speech';
+import Loading from 'components/Loading';
 import styles from './Tabs.module.scss';
+
+const Votes = React.lazy(() => import('./Votes'));
+const Speech = React.lazy(() => import('./Speech'));
 
 function Tabs({ history, match, id, member }) {
   const { url } = match;
@@ -60,10 +62,12 @@ function Tabs({ history, match, id, member }) {
         </Nav>
       </div>
       <div className={styles.tabContent}>
-        <Switch>
-          <Route exact path={url} name="投票" render={() => <Votes member={member} />} />
-          <Route exact path={`${url}/speech`} name="發言" render={Speech} />
-        </Switch>
+        <React.Suspense fallback={Loading}>
+          <Switch>
+            <Route exact path={url} name="投票" render={() => <Votes member={member} />} />
+            <Route exact path={`${url}/speech`} name="發言" component={Speech} />
+          </Switch>
+        </React.Suspense>
       </div>
     </>
   );

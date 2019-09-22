@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
-import DefaultLayout from './views/DefaultLayout';
+import DefaultLayout from 'views/DefaultLayout';
+import Loading from 'components/Loading';
 import './App.scss';
 
-const Loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 const MemberList = React.lazy(() => import('./views/MemberList'));
 const Member = React.lazy(() => import('./views/Member'));
 const Dashboard = React.lazy(() => import('./views/Dashboard'));
