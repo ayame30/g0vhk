@@ -76,6 +76,8 @@ function Member({ member }) {
               <li>專責委員會副主席</li>
             </ul>
           </Col>
+        </Row>
+        <Row>
           <Col>
             <h5>私人職務</h5>
             <ul>
