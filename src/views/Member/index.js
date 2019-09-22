@@ -24,7 +24,7 @@ function Member({ history, match }) {
         <BreadcrumbItem active>{member.name}</BreadcrumbItem>
       </Breadcrumb>
       <div className={classnames('animated fadeIn bg-white row', styles.info)}>
-        <Avatar src={member.avatar} />
+        <Avatar src={member.avatar} className="md" />
         <div className={classnames('col', styles.topLine)}>
           <div className={classnames('row justify-content-between', styles.topLineFlex)}>
             <div className={styles.infoText}>
@@ -38,16 +38,6 @@ function Member({ history, match }) {
                 </div>
               : null} 
             </div>
-          </div>
-        </div>
-        <div className="text-right">
-          <div className={styles.statNumber}>
-            <span className={styles.number}>{member.attendanceRate}%</span>
-            <span className={styles.label}>出席率</span>
-          </div>
-          <div className={styles.statNumber}>
-            <span className={styles.number}>{member.voteRate}%</span>
-            <span className={styles.label}>投票率</span>
           </div>
         </div>
       </div>
