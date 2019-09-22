@@ -16,7 +16,7 @@ function Member({ member }) {
     <div className={styles.root}>
       <section>
         <Row>
-          <Col>
+          <Col className="p-1">
             <NumberHighlight
               loading={false}
               amount={member.attendanceRate}
@@ -25,7 +25,7 @@ function Member({ member }) {
               color="secondary"
             />
           </Col>
-          <Col>
+          <Col className="p-1">
             <NumberHighlight
               loading={false}
               amount={member.voteRate}
@@ -34,7 +34,7 @@ function Member({ member }) {
               color="primary"
             />
           </Col>
-          <Col>
+          <Col className="p-1">
             <NumberHighlight
               loading={false}
               amount={member.questionRate}
@@ -45,8 +45,8 @@ function Member({ member }) {
           </Col>
         </Row>
         <Row>
-          <Col><NumberHighlight loading={false} amount={member.speechCount} unit="次" title="發言" color="warning" /></Col>
-          <Col><NumberHighlight loading={false} amount={member.amendmentCount} unit="次" title="提出修正案" color="primary" /></Col>
+          <Col className="p-1"><NumberHighlight loading={false} amount={member.speechCount} unit="次" title="發言" color="warning" /></Col>
+          <Col className="p-1"><NumberHighlight loading={false} amount={member.amendmentCount} unit="次" title="提出修正案" color="primary" /></Col>
         </Row>
       </section>
       <section>
