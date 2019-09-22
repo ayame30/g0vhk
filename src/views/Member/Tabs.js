@@ -5,6 +5,7 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 import Loading from 'components/Loading';
 import styles from './Tabs.module.scss';
 
+const Background = React.lazy(() => import('./Background'));
 const Votes = React.lazy(() => import('./Votes'));
 const Speech = React.lazy(() => import('./Speech'));
 
@@ -14,13 +15,24 @@ function Tabs({ history, match, id, member }) {
   return (
     <>
       <div className="bg-white pt-3">
-        <Nav tabs style={{ width: '100%'}}>
+        <Nav tabs className={styles.navTab}>
           <NavItem>
             <Link to={url}>
               <NavLink
                 exact
                 to={url}
                 active={isActive(url)}
+              >
+                背景
+              </NavLink>
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link to={`${url}/votes`}>
+              <NavLink
+                exact
+                to={`${url}/votes`}
+                active={isActive(`${url}/votes`)}
               >
                 投票
               </NavLink>
@@ -64,7 +76,8 @@ function Tabs({ history, match, id, member }) {
       <div className={styles.tabContent}>
         <React.Suspense fallback={Loading}>
           <Switch>
-            <Route exact path={url} name="投票" render={() => <Votes member={member} />} />
+            <Route exact path={url} name="背景" render={() => <Background member={member} />} />
+            <Route exact path={`${url}/votes`} name="投票" render={() => <Votes member={member} />} />
             <Route exact path={`${url}/speech`} name="發言" component={Speech} />
           </Switch>
         </React.Suspense>

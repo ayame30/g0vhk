@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { Badge, Card, CardBody } from 'reactstrap';
 import actionConstant from 'constants/action';
 import voteResultConstant from 'constants/voteResult';
+import Avatar from 'components/Avatar';
 import { voteHistory } from 'api/member';
 import styles from './Votes.module.scss';
 
@@ -32,9 +33,9 @@ function Member({ history, member }) {
             <span className="float-right text-right">
               <small>{h.date}</small>
               <div className={styles.memberVote}>
-                <div
-                  style={{ backgroundImage: `url(${member.avatar}`}}
-                  className={styles.img}
+                <Avatar
+                  className={classnames('sm circle', styles.img)}
+                  src={member.avatar}
                 />
                 <h3 className={classnames(styles.badge, styles[h.action])}>
                   <Badge color="primary">

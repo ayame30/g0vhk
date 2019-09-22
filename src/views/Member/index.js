@@ -35,19 +35,16 @@ function Member({ history, match }) {
             </div>
           </div>
         </div>
-        <div>
+        <div className="text-right">
           <div className={styles.statNumber}>
-            <span className={styles.number}>56.5%</span>
+            <span className={styles.number}>{member.attendanceRate}%</span>
             <span className={styles.label}>出席率</span>
           </div>
           <div className={styles.statNumber}>
-            <span className={styles.number}>56.5%</span>
+            <span className={styles.number}>{member.voteRate}%</span>
             <span className={styles.label}>投票率</span>
           </div>
         </div>
-        <Link className={styles.more} to={`/members/${id}/details`}>
-          <h6>查看更多..</h6>
-        </Link>
       </div>
       <hr />
       <div className={classnames('animated fadeIn bg-white pt-2', styles.relative)}>

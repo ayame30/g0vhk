@@ -15,6 +15,8 @@ export default function (id) {
     attendanceRate: 50,
     voteRate: 12.2,
     questionRate: 19.7,
+    speechCount: 356,
+    amendmentCount: 37,
     lastAction: 'agree',
     tags: [
       '建制', '功能組別','建制', '功能組別','建制', '功能組別'

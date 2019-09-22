@@ -1,0 +1,16 @@
+.root {
+  padding: 10px;
+  section {
+    padding: 10px 0;
+  }
+  ul ul {
+    padding-left: 10px;
+  }
+}
+.reference {
+  display: block;
+  text-align: right;
+  button {
+    text-decoration: underline;
+  }
+}
