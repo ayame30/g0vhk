@@ -1,0 +1,51 @@
+.avatarCol {
+  flex: 0 0 40px;
+  padding-top: 10px;
+}
+.speechCol {
+  flex: 2;
+  padding-left: 10px;
+
+}
+.card {
+  margin: 10px 0;
+  .vote {
+    width: 100%;
+    vertical-align: middle;
+    padding: 12px 15px;
+    background: rgb(248,248,248);
+    span {
+      display: inline-block;
+    }
+    h5, h3 {
+      margin: 0;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 20px;
+    margin-top: -6px;
+    border-right: #c2cbd5 5px solid;
+    border-top: transparent 6px solid;
+    border-bottom: transparent 6px solid;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 21px;
+    margin-top: -6px;
+    border-right: #f8f8f8 4px solid;
+    border-top: transparent 5px solid;
+    border-bottom: transparent 5px solid;
+  }
+}
+.container {
+  padding: 10px;
+  overflow: hidden;
+  :global(.row) {
+    margin:0;
+  }
+}

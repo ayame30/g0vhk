@@ -78,7 +78,7 @@ function Tabs({ history, match, id, member }) {
           <Switch>
             <Route exact path={url} name="背景" render={() => <Background member={member} />} />
             <Route exact path={`${url}/votes`} name="投票" render={() => <Votes member={member} />} />
-            <Route exact path={`${url}/speech`} name="發言" component={Speech} />
+            <Route exact path={`${url}/speech`} name="發言" render={() => <Speech member={member} />} />
           </Switch>
         </React.Suspense>
       </div>
