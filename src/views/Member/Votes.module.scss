@@ -41,6 +41,14 @@
   width: 30px;
   display: inline-block;
   margin: 2px;
+  &.absent {
+    background: #fff;
+    background-image: initial !important;
+    border: 3px dotted #ccc;
+  }
+  &.abstention {
+    opacity: 0.3;
+  }
 }
 .memberVote {
   vertical-align: top;
@@ -75,14 +83,6 @@
       }
     }
   }
-  // &.absent {
-  //   :global(.badge) {
-  //     background-color:rgb(154, 154, 154);
-  //     &::before {
-  //       border-right: rgb(154, 154, 154) 5px solid;
-  //     }
-  //   }
-  // }
   &.disagree {
     :global(.badge) {
       background-color:rgb(210, 65, 65);

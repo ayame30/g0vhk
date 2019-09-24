@@ -34,7 +34,7 @@ function Member({ history, member }) {
               <small>{item.date}</small>
               <div className={styles.memberVote}>
                 <Avatar
-                  className={classnames('sm circle', styles.img)}
+                  className={classnames('sm circle', styles.img, styles[item.action])}
                   src={member.avatar}
                 />
                 <h3 className={classnames(styles.badge, styles[item.action])}>
