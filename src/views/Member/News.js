@@ -13,7 +13,7 @@ function News({ history, member }) {
   return (
     <div className={classnames('animated fadeIn', styles.root)}>
       {newsList.map(item => (
-        <Row>
+        <Row key={item.id}>
           <Card className={styles.card}>
             <CardBody className={classnames(styles.vote)}>
               <a href={item.url} target="_blank" rel="noopener noreferrer">

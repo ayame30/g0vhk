@@ -16,32 +16,32 @@ function Member({ history, member }) {
   }, [ member ]);
   return (
     <div className={classnames('animated fadeIn', styles.root)}>
-      {voteHistories.map(h => (
-        <Card className={classnames(styles.card, styles[h.voteResult])}>
+      {voteHistories.map(item => (
+        <Card key={item.id} className={classnames(styles.card, styles[item.voteResult])}>
           <CardBody className={classnames(styles.vote)}>
             <span>
-              <h4>{h.name}</h4>
-              {h.voteResult ?
+              <h4>{item.name}</h4>
+              {item.voteResult ?
                 <h5>
                   <Badge className={styles.voteResultBadge}>
-                    <i className={classnames('far mr-1', voteResultConstant[h.voteResult].iconClass)} />
-                    {voteResultConstant[h.voteResult].label}
+                    <i className={classnames('far mr-1', voteResultConstant[item.voteResult].iconClass)} />
+                    {voteResultConstant[item.voteResult].label}
                   </Badge>
                 </h5>
                 : null }
             </span>
             <span className="float-right text-right">
-              <small>{h.date}</small>
+              <small>{item.date}</small>
               <div className={styles.memberVote}>
                 <Avatar
                   className={classnames('sm circle', styles.img)}
                   src={member.avatar}
                 />
-                <h3 className={classnames(styles.badge, styles[h.action])}>
+                <h3 className={classnames(styles.badge, styles[item.action])}>
                   <Badge color="primary">
                     <span>
-                      <i className={classnames('mr-2', actionConstant[h.action].iconClass)} />
-                      {actionConstant[h.action].label}
+                      <i className={classnames('mr-2', actionConstant[item.action].iconClass)} />
+                      {actionConstant[item.action].label}
                     </span>
                   </Badge>
                 </h3>

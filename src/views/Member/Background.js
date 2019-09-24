@@ -62,29 +62,23 @@ function Member({ member }) {
         <Row>
           <Col className="p-0">
             <h5>公職</h5>
-            <ul>
-              <li>專責委員會副主席</li>
-              <li>專責委員會副主席</li>
-              <li>專責委員會副主席</li>
-            </ul>
+            <div>專責委員會副主席</div>
+            <div>專責委員會副主席</div>
+            <div>專責委員會副主席</div>
           </Col>
           <Col className="p-0">
             <h5>委員會職務</h5>
-            <ul>
-              <li>專責委員會副主席</li>
-              <li>專責委員會副主席</li>
-              <li>專責委員會副主席</li>
-            </ul>
+            <div>專責委員會副主席</div>
+            <div>專責委員會副主席</div>
+            <div>專責委員會副主席</div>
           </Col>
         </Row>
         <Row>
           <Col className="p-0">
             <h5>私人職務</h5>
-            <ul>
-              <li>專責委員會副主席</li>
-              <li>專責委員會副主席</li>
-              <li>專責委員會副主席</li>
-            </ul>
+            <div>專責委員會副主席</div>
+            <div>專責委員會副主席</div>
+            <div>專責委員會副主席</div>
           </Col>
         </Row>
       </section>

@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 import { Card, CardBody, Row } from 'reactstrap';
+import renderHTML from 'react-render-html';
 import Avatar from 'components/Avatar';
-import { voteHistory } from 'api/member';
+import { speech } from 'api/member';
 import styles from './Speech.module.scss';
 
 function Speech({ history, member }) {
-  const [ voteHistories, setVoteHistories ] = useState([]);
+  const [ speechList, setSpeechList ] = useState([]);
   useEffect(() => {
-    voteHistory(member.id)
-      .then(setVoteHistories);
+    speech(member.id)
+      .then(setSpeechList);
   }, [ member ]);
   return (
     <div className={classnames('animated fadeIn', styles.root)}>
-      {voteHistories.map(h => (
-        <Row>
+      {speechList.map(item => (
+        <Row key={item.id}>
           <div className={styles.avatarCol}>
             <Avatar
               className={classnames('sm circle', styles.img)}
@@ -22,19 +23,14 @@ function Speech({ history, member }) {
             />
           </div>
           <div className={styles.speechCol}>
-            <Card className={classnames(styles.card, styles[h.voteResult])}>
+            <Card className={classnames(styles.card)}>
               <CardBody className={classnames(styles.vote)}>
                 <span>
-                  <h4>{h.name}</h4>
-                  <p>
-                    足進中度市，別自分業聞家間該是，性清所民國現示生小了，他中消配一事有我林來先，大很得時爭己白自坐機外小。房燈西常低要生無歡中見口？事成報，了空民明當開過一來那量北的就的辦科？於子是心意他你樣明麼來唱河。
-                  </p>
-                  <p>
-                    只場如不……就還月作物產常水。
-                  </p>
+                  <h4>{item.name}</h4>
+                  {renderHTML(item.contentHtml)}
                 </span>
                 <span className="float-right text-right">
-                  <small>{h.date}</small>
+                  <small>{item.date}</small>
                 </span>
               </CardBody>
             </Card>

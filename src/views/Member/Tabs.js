@@ -50,7 +50,7 @@ function Tabs({ history, match, id, member }) {
               </NavLink>
             </Link>
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <Link to={`${url}/questions`}>
               <NavLink
                 exact
@@ -60,7 +60,7 @@ function Tabs({ history, match, id, member }) {
                 質詢
               </NavLink>
             </Link>
-          </NavItem>
+          </NavItem> */}
           <NavItem>
             <Link to={`${url}/news`}>
               <NavLink
