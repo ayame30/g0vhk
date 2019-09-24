@@ -22,11 +22,14 @@
     }
   }
   &.negatived {
-    border-color: rgb(189, 163, 163);
+    border-color: rgb(207, 207, 207);
     .vote {
-      background: rgb(255, 249, 249);
+      background: rgb(246, 246, 246);
+      h4 {
+        color: #666;
+      }
       .voteResultBadge {
-        background: rgb(237, 136, 136);
+        background: rgb(193, 193, 193);
       }
     }
   }
