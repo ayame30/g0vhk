@@ -3,7 +3,7 @@ import { Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import styles from './index.module.scss';
 
-const Sorting = ({ name, onClick, activeName, ascending }) => {
+const Sorting = ({ name, onClick, activeName, ascending, label }) => {
   let className = 'fas fa-sort';
   if (name === activeName) {
     className = ascending ? 'fas fa-sort-up' : 'fas fa-sort-down';
@@ -17,7 +17,8 @@ const Sorting = ({ name, onClick, activeName, ascending }) => {
   }
   return (
     <button onClick={onSort} className={styles.sortButton}>
-      <i className={className} />
+      <b>{label}</b>
+      <i className={classnames(className, 'pl-1')} />
     </button>
   );
 }
@@ -28,16 +29,13 @@ function Heading({ onChange, ascending, sortingBy }) {
     <Row className={styles.tableHeading}>
       <Col className={classnames('text-center', styles.flexFixed)}><i className="icon-people" /></Col>
       <Col className={styles.flexExpand}>
-        議員姓名
-        <Sorting name="name" onClick={onChange} activeName={sortingBy} ascending={ascending} />
+        <Sorting name="name" onClick={onChange} activeName={sortingBy} ascending={ascending} label="議員姓名" />
       </Col>
       <Col className={styles.flexFixed}>
-        出席率
-        <Sorting name="attendanceRate" onClick={onChange} activeName={sortingBy} ascending={ascending} />
+        <Sorting name="attendanceRate" onClick={onChange} activeName={sortingBy} ascending={ascending} label="出席率" />
       </Col>
       <Col className={styles.flexFixed}>
-        最近表決
-        <Sorting name="lastAction" onClick={onChange} activeName={sortingBy} ascending={ascending} />
+        <Sorting name="lastAction" onClick={onChange} activeName={sortingBy} ascending={ascending} label="最近表決" />
       </Col>
     </Row>
   );
