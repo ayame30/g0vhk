@@ -14,7 +14,7 @@ export default function (id) {
         avatar: `https://g0vhk.io${data.image}`,
         party: data.party && data.party.name_ch,
         attendanceRate: (100 - (absent / countTotalMeeting * 100)).toFixed(2),
-        voteRate: ((no + yes) / countTotalVote * 100).toFixed(2),
+        voteRate: ((no + yes + abstain) / countTotalVote * 100).toFixed(2),
         questionRate: '-',
         speechCount: '-',
         amendmentCount: '-',
