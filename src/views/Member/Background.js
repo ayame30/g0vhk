@@ -59,7 +59,7 @@ function Member({ member }) {
         </div>
       </section>
       <section>
-        <Row>
+        <Row className="mb-4">
           <Col className="p-0">
             <h5>公職</h5>
             <div>專責委員會副主席</div>
@@ -73,7 +73,7 @@ function Member({ member }) {
             <div>專責委員會副主席</div>
           </Col>
         </Row>
-        <Row>
+        <Row className="mb-4">
           <Col className="p-0">
             <h5>私人職務</h5>
             <div>專責委員會副主席</div>

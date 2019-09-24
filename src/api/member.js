@@ -1,27 +1,29 @@
-import { delayResponse } from './';
-
-import response from './test.json';
-const members = response.reduce((acc, r) => acc.concat(r.members), []); 
+import axios, { delayResponse } from './';
 
 export default function (id) {
-  const member = members.find(m => `${m.id}` === `${id}`);
-  if (!member) return delayResponse({});
-  return delayResponse({
-    id: id,
-    name: member.name_ch,
-    name_en: member.name_en,
-    avatar: `https://g0vhk.io${member.image}`,
-    party: member.party && member.party.name_ch,
-    attendanceRate: 50,
-    voteRate: 12.2,
-    questionRate: 19.7,
-    speechCount: 356,
-    amendmentCount: 37,
-    lastAction: 'agree',
-    tags: [
-      '建制', '功能組別','建制', '功能組別','建制', '功能組別'
-    ]
-  });  
+  return axios.get(`/legco/individual/${id}`)
+    .then(({ data }) => {
+      const { yes, no, absent, abstain, present } = data;
+      const countTotalVote = no + yes + absent + abstain;
+      const countTotalMeeting = countTotalVote + present;
+
+      return Promise.resolve({
+        id: id,
+        name: data.name_ch,
+        name_en: data.name_en,
+        avatar: `https://g0vhk.io${data.image}`,
+        party: data.party && data.party.name_ch,
+        attendanceRate: (100 - (absent / countTotalMeeting * 100)).toFixed(2),
+        voteRate: ((no + yes) / countTotalVote * 100).toFixed(2),
+        questionRate: '-',
+        speechCount: '-',
+        amendmentCount: '-',
+        lastAction: 'agree',
+        tags: [
+          '建制', '功能組別','建制', '功能組別','建制', '功能組別'
+        ]
+      })
+    });  
 }
 
 export function voteHistory(id) {
