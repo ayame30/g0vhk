@@ -1,11 +1,9 @@
 html body .app.flex-row.align-items-center {
   height: 100vh;
 }
-html, body {
+html, body, #root, .app {
   height: 100%;
-}
-#root, .app {
-  height: 100%;
+  overflow: hidden;
 }
 
 // ie11 floating footer temp fix, react only
