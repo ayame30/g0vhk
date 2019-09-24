@@ -13,7 +13,7 @@ import SearchInput from './SearchInput';
 
 function Dashboard({ history }) {
   return (
-    <div>
+    <div className={styles.root}>
       <div className="animated fadeIn card-body">
         <Row>
           <Col>
