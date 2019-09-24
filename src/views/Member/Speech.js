@@ -26,7 +26,7 @@ function Speech({ history, member }) {
             <Card className={classnames(styles.card)}>
               <CardBody className={classnames(styles.vote)}>
                 <span>
-                  <h4>{item.name}</h4>
+                  <h4>{item.title}</h4>
                   {renderHTML(item.contentHtml)}
                 </span>
                 <span className="float-right text-right">
