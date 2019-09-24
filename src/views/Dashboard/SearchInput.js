@@ -5,9 +5,7 @@ import classnames from 'classnames';
 import searchResult from 'api/searchResult';
 
 import {
-  InputGroup,
   Input,
-  InputGroupAddon,
   Table,
 } from 'reactstrap';
 import styles from './SearchInput.module.scss';
@@ -37,23 +35,25 @@ function SearchInput({ history }) {
   }, [keyword])
   
   return (
-    <>
-      <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <span className="input-group-text"><i className="fas fa-search" /></span>
-        </InputGroupAddon>
-        <Input placeholder="議員名稱" size="lg" value={keyword} onChange={onChangeKeyword} onFocus={onFocus}/>
-        <div className={classnames(styles.searchResultWrapper, { 'd-none': !showResult })}>
-          <div className={styles.searchResult}>
-            <Table hover responsive className="table-outline mb-0 d-sm-table">
-              <tbody>
-                {result.map(member => <Row member={member} key={`member-${member.id}`} />)}
-              </tbody>
-            </Table>
-          </div>
+    <div className={styles.root}>
+      <Input
+        className={styles.input}
+        placeholder="議員名稱"
+        size="lg" value={keyword}
+        onChange={onChangeKeyword}
+        onFocus={onFocus}
+      />
+      <i className={classnames('fas fa-search', styles.icon)} />
+      <div className={classnames(styles.searchResultWrapper, { 'd-none': !showResult })}>
+        <div className={styles.searchResult}>
+          <Table hover responsive className="table-outline mb-0 d-sm-table">
+            <tbody>
+              {result.map(member => <Row member={member} key={`member-${member.id}`} />)}
+            </tbody>
+          </Table>
         </div>
-      </InputGroup>
-    </>
+      </div>
+    </div>
   );
 }
 
