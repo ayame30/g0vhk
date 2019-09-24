@@ -42,9 +42,11 @@
     border-bottom: transparent 5px solid;
   }
 }
-.container {
+.root {
   padding: 10px;
   overflow: hidden;
+  padding-bottom: 50px;
+
   :global(.row) {
     margin:0;
   }

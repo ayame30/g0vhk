@@ -11,7 +11,7 @@ function News({ history, member }) {
       .then(setNewsList);
   }, [ member ]);
   return (
-    <div className={classnames('animated fadeIn', styles.container)}>
+    <div className={classnames('animated fadeIn', styles.root)}>
       {newsList.map(item => (
         <Row>
           <Card className={styles.card}>

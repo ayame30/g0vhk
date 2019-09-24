@@ -15,7 +15,7 @@ function Member({ history, member }) {
       .then(setVoteHistories);
   }, [ member ]);
   return (
-    <div className={classnames('animated fadeIn', styles.container)}>
+    <div className={classnames('animated fadeIn', styles.root)}>
       {voteHistories.map(h => (
         <Card className={classnames(styles.card, styles[h.voteResult])}>
           <CardBody className={classnames(styles.vote)}>
