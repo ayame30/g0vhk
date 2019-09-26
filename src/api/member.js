@@ -3,7 +3,7 @@ import axios, { delayResponse } from './';
 export default function (id) {
   return axios.get(`/legco/individual/${id}`)
     .then(({ data }) => {
-      const { yes, no, absent, abstain, present } = data;
+      const { yes = 0, no = 0, absent = 0, abstain = 0, present = 0 } = data;
       const countTotalVote = no + yes + absent + abstain;
       const countTotalMeeting = countTotalVote + present;
 
