@@ -11,6 +11,12 @@ export const SecondReadStatus = () => (
   </div>
 );
 
+export const CardImage = ({ image }) => (
+  <div
+    className={classnames(styles.cardImage)}
+    styles={{ backgroundImage: image }}
+  />
+);
 
 export default ({ children, statusComponent = null }) => (
   <div className={classnames(styles.card, { [styles.withStatus]: !!statusComponent })}>

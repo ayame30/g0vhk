@@ -1,3 +1,5 @@
+@import "scss/_custom.scss";
+
 .card {
   display: block;
   background: #fff;
@@ -22,4 +24,11 @@
     color: #fff;
     padding: 10px;
   }
+}
+.cardImage {
+  @extend .background-cover;
+  background-color: #B2E3FE;
+  width: 100%;
+  padding-bottom: 60%;
+  
 }

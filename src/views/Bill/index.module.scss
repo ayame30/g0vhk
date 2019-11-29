@@ -2,7 +2,6 @@ $dark: #444;
 $light: #ccc;
 $background: #fff;
 .readStatus {
-  padding: 10px 0;
   overflow: visible;
   .icon {
     z-index: 1;
@@ -63,4 +62,28 @@ $background: #fff;
   &.lastActive .icon::after {
     border-left: 15px $dark solid;
   }
+}
+
+.sortButton {
+  border: 1px $dark solid;
+  padding: 3px 10px;
+  border-radius: 15px;
+  margin: 0 5px;
+  margin-bottom: 10px;
+}
+
+.resultRow {
+  border-bottom: $light solid 1px;
+  >div {
+    padding: 6px 2px;
+  }
+  span {
+    padding: 3px;
+  }
+}
+.vote {
+  color: #ccc;
+  font-size: 14px;
+  margin-right: 4px;
+  margin-bottom: 4px;
 }
