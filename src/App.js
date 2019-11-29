@@ -6,12 +6,12 @@ import 'typeface-roboto';
 import './App.scss';
 
 const Homepage = React.lazy(() => import('./views/Homepage'));
-const Bill = React.lazy(() => import('./views/Bill'));
+const Bills = React.lazy(() => import('./views/Bills'));
 const Category = React.lazy(() => import('./views/Category'));
 
 const routes = [
   { path: '/', exact: true, name: '主頁', component: Homepage },
-  { path: '/bills', name: '議員', component: Bill },
+  { path: '/bills', name: '議員', component: Bills },
   { path: '/categories', name: '議員', component: Category },
 
 ];
