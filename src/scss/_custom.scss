@@ -103,6 +103,16 @@ button {
   font-size: 35px;
 }
 
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
 hr.vertical {
   border: 0;
   width: 0;
@@ -118,10 +128,16 @@ hr.vertical {
   display: flex;
   flex-direction: row;
   &.flex-middle {
-    align-items: center;
+    align-content: center;
+  }
+  &.flex-top {
+    align-content: flex-start;
   }
   &.flex-center {
     justify-content: center;
+  }
+  &.multiline {
+    flex-wrap: wrap;
   }
   .flex-expand {
     flex: 1;
@@ -136,4 +152,9 @@ hr.vertical {
 }
 .overflow-y {
   overflow-y: overlay;
+}
+.background-cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
