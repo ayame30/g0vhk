@@ -1,0 +1,27 @@
+.card {
+  display: block;
+  background: #fff;
+  padding: 10px;
+  background: #f1f1f1;
+  margin: 10px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  h3 {
+    margin: 5px 0;
+  }
+  &.withStatus {
+    padding-right: 110px;
+  }
+  .status {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    background: #888;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+  }
+}

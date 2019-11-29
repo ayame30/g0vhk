@@ -4,14 +4,13 @@ import DefaultLayout from 'views/DefaultLayout';
 import Loading from 'components/Loading';
 import './App.scss';
 
-const MemberList = React.lazy(() => import('./views/MemberList'));
-const Member = React.lazy(() => import('./views/Member'));
-const Dashboard = React.lazy(() => import('./views/Dashboard'));
+const Homepage = React.lazy(() => import('./views/Homepage'));
+const Bill = React.lazy(() => import('./views/Bill'));
 
 const routes = [
-  { path: '/', exact: true, name: '主頁', component: Dashboard },
-  { path: '/area/:area', exact: true, name: '選區議員名單', component: MemberList },
-  { path: '/members/:id', name: '議員', component: Member },
+  { path: '/', exact: true, name: '主頁', component: Homepage },
+  { path: '/bills', name: '議員', component: Bill },
+
 ];
 
 class App extends Component {

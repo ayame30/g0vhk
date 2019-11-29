@@ -29,3 +29,52 @@ hr {
 .img-avatar {
   border-radius: 4px;
 }
+body {
+  background: #fff;
+}
+div {
+  display: block;
+  box-sizing: border-box;
+  line-height: 1;
+  position: relative;
+}
+h1, .h1 {
+  font-size: 35px;
+  line-height: 1.2;
+  margin: 0;
+}
+h2, .h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0;
+}
+h3, .h3 {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0;
+
+}
+h4, .h4 {
+  font-size: 15px;
+  line-height: 1.2;
+  margin: 0;
+
+}
+h5, .h5 {
+  font-size: 12px;
+  line-height: 1.2;
+  margin: 0;
+
+}
+h6, .h6 {
+  font-size: 12px;
+  line-height: 1.2;
+  margin: 0;
+
+}
+small {
+  font-size: 10px;
+  line-height: 1;
+  margin: 0;
+
+}
