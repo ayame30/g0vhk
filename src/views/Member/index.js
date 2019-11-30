@@ -36,9 +36,9 @@ export default () => {
         </div>
       </div>
       <TabBar options={options} value={value} onChange={setValue} />
-      <div className="p flex-expand overflow-y">     
-        <Party />
-        <Overview />
+      <div className="p flex-expand overflow-y">    
+        {value === 'overview'? <Overview /> : null}
+        {value === 'party'? <Party /> : null}
       </div>
     </div>
   )
