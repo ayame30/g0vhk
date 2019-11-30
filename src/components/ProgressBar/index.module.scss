@@ -1,0 +1,17 @@
+@import "scss/_custom.scss";
+
+.progressBar {
+  background: #ddd;
+  overflow: hidden;
+  height: 10px;
+  border-radius: 4px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  .bar {
+    width: 0;
+    background: #000;
+    height: 100%;
+    justify-content: flex-start;
+  }
+}
