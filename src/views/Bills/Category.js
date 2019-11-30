@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ImageIcon from 'components/ImageIcon';
+import classnames from 'classnames';
+import styles from './index.module.scss';
 
 export const Category = ({ label, value, image, active, onSelect }) => {
   const onChange = () => onSelect(value);
@@ -11,23 +13,14 @@ export const Category = ({ label, value, image, active, onSelect }) => {
   );
 }
 
-export default () => {
-  const options = [
-    { label: '全部', value: 'all' },
-    { label: '福利', value: 'bene' },
-    { label: '環保', value: 'env' },
-    { label: '人口', value: 'ppl' },
-    { label: '基建', value: 'facility' },
-    { label: '房屋', value: 'housing' },
-  ];
-  const [ value, setValue ] = useState(options[0].value);
+export default ({ open, options, value, onChange }) => {
   return (
-    <div className="flex-row-parent fullheight multiline flex-top">
+    <div className={classnames('flex-row-parent fullheight multiline flex-top', styles.category, { [styles.open]: open })}>
       {options.map(props => (
         <Category
           {...props}
           active={value === props.value}
-          onSelect={setValue}
+          onSelect={onChange}
         />
       ))}
     </div>
