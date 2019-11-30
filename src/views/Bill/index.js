@@ -65,12 +65,12 @@ export default () => {
             <button className={styles.sortButton}>按政黨</button>
           </div>
           <div className="flex-column-parent">
-            <div className={classnames('flex-row-parent', styles.resultRow)}>
+            <div className={classnames('flex-row-parent p2', styles.resultRow)}>
               <div className="flex-100 flex-self-center">表決結果</div>
               <div className="flex-expand flex-self-center">通過</div>
               <div className="flex-100 flex-self-center"><b>田北辰</b> 主持</div>
             </div>
-            <div className={classnames('flex-row-parent', styles.resultRow)}>
+            <div className={classnames('flex-row-parent p2', styles.resultRow)}>
               <div className="flex-100 flex-self-center">地區直選</div>
               <div className="flex-expand flex-self-center">
                 {vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}
@@ -82,7 +82,7 @@ export default () => {
                 <span>21 贊成</span>
               </div>
             </div>
-            <div className={classnames('flex-row-parent', styles.resultRow)}>
+            <div className={classnames('flex-row-parent p2', styles.resultRow)}>
               <div className="flex-100 flex-self-center">功能組別</div>
               <div className="flex-expand flex-self-center">
                 {vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}
@@ -94,6 +94,51 @@ export default () => {
                 <span>21 贊成</span>
                 <span>21 贊成</span>
               </div>
+            </div>
+            <div className={classnames('flex-column-parent p2')}>
+              <div className="flex-row-parent py-2">
+                <div className="flex-expand flex-self-center">政黨</div>
+                <div className="flex-50 text-center">贊成</div>
+                <div className="flex-50 text-center">反對</div>
+                <div className="flex-50 text-center">棄權</div>
+                <div className="flex-50 text-center">缺席</div>
+              </div>
+              <div className="flex-row-parent py-2">
+                <div className="flex-expand flex-self-center">民主黨</div>
+                <div className="flex-50 text-center">5</div>
+                <div className="flex-50 text-center">0</div>
+                <div className="flex-50 text-center">0</div>
+                <div className="flex-50 text-center">2</div>
+              </div>
+              <div className="flex-row-parent py-2">
+                <div className="flex-expand flex-self-center">自由黨</div>
+                <div className="flex-50 text-center">4</div>
+                <div className="flex-50 text-center">0</div>
+                <div className="flex-50 text-center">0</div>
+                <div className="flex-50 text-center">0</div>
+              </div>
+              <div className="flex-row-parent py-2">
+                <div className="flex-expand flex-self-center">民建聯</div>
+                <div className="flex-50 text-center">3</div>
+                <div className="flex-50 text-center">2</div>
+                <div className="flex-50 text-center">2</div>
+                <div className="flex-50 text-center">2</div>
+              </div>
+              <div className="flex-row-parent py-2">
+                <div className="flex-expand flex-self-center">街工</div>
+                <div className="flex-50 text-center">2</div>
+                <div className="flex-50 text-center">0</div>
+                <div className="flex-50 text-center">0</div>
+                <div className="flex-50 text-center">2</div>
+              </div>
+              <div className="flex-row-parent py-2">
+                <div className="flex-expand flex-self-center">人民力量</div>
+                <div className="flex-50 text-center">0</div>
+                <div className="flex-50 text-center">4</div>
+                <div className="flex-50 text-center">4</div>
+                <div className="flex-50 text-center">0</div>
+              </div>
+                
             </div>
           </div>
         </div>
@@ -145,7 +190,37 @@ export default () => {
       </article>
       
       <article>
-        <h3><b>質詢紀錄</b></h3>
+        <h3>
+          <b>質詢紀錄</b>
+          <button className="float-right">更多</button>
+        </h3>
+        <div className="py-2">
+          <div className="flex-row-parent border-bottom my-2">
+            <div className="flex-50">1</div>
+            <div className="flex-50"><b>田北辰</b></div>
+            <div className="flex-expand">向 <b>社會福利署</b> 就 <b>現時長者福利</b> 質詢</div>
+          </div>
+          <div className="flex-row-parent border-bottom my-2">
+            <div className="flex-50">2</div>
+            <div className="flex-50"><b>田北辰</b></div>
+            <div className="flex-expand">向 <b>社會福利署</b> 就 <b>現時長者福利</b> 質詢</div>
+          </div>
+          <div className="flex-row-parent border-bottom my-2">
+            <div className="flex-50">3</div>
+            <div className="flex-50"><b>田北辰</b></div>
+            <div className="flex-expand">向 <b>社會福利署</b> 就 <b>現時長者福利</b> 質詢</div>
+          </div>
+          <div className="flex-row-parent border-bottom my-2">
+            <div className="flex-50">4</div>
+            <div className="flex-50"><b>田北辰</b></div>
+            <div className="flex-expand">向 <b>社會福利署</b> 就 <b>現時長者福利</b> 質詢</div>
+          </div>
+          <div className="flex-row-parent border-bottom my-2">
+            <div className="flex-50">5</div>
+            <div className="flex-50"><b>田北辰</b></div>
+            <div className="flex-expand">向 <b>社會福利署</b> 就 <b>現時長者福利</b> 質詢</div>
+          </div>
+        </div>
       </article>
     </div>
     

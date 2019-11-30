@@ -171,6 +171,12 @@ hr.vertical {
   .flex-100 {
     flex: 0 0 100px;
   }
+  .flex-80 {
+    flex: 0 0 80px;
+  }
+  .flex-50 {
+    flex: 0 0 50px;
+  }
 }
 .flex-column-parent {
   display: flex;
@@ -190,6 +196,9 @@ hr.vertical {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.border-bottom {
+  border-bottom: 1px solid #ccc;
 }
 .arrow-right {
   display: inline-block;
