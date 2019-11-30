@@ -5,6 +5,7 @@ import Category from './Category';
 
 const sampleCard = (
   <Bill
+    id={123}
     readStatus={2}
     tags={['長者', '福利']}
     name="全方位支援 60 歲至 64 歲長者"
@@ -41,7 +42,7 @@ export default () => {
         </div>
         <hr className="vertical ml-1"/>
         <button className="px-2 flex-100" onClick={() => setOpenCategory(prev => !prev)}>
-          <i class="fas fa-layer-group mr-1" />
+          {openCategory ? <i class="fas fa-times mr-1" /> : <i class="fas fa-layer-group mr-1" />}
           分類
         </button>
       </div>

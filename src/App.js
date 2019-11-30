@@ -13,39 +13,38 @@ const Members = React.lazy(() => import('./views/Members'));
 const Member = React.lazy(() => import('./views/Member'));
 
 const routes = [
-  { path: '/', exact: true, name: '主頁', component: Homepage },
-  { path: '/bills', name: '議員', component: Bills },
-  { path: '/bill', name: '議員', component: Bill },
-  // { path: '/categories', name: '議員', component: Category },
+  { path: '/', exact: true, name: '首頁', component: Homepage },
+  { path: '/bills/:id', name: '議案', component: Bill },
+  { path: '/bills', name: '議案', component: Bills },
+  { path: '/members/:id', name: '議員', component: Member },
   { path: '/members', name: '議員', component: Members },
-  { path: '/member', name: '議員', component: Member },
 
 ];
 
 class App extends Component {
   render() {
     return (
-      <DefaultLayout>
-        <HashRouter>
-            <React.Suspense fallback={Loading}>
-              <Switch>
-                {routes.map((route, idx) => {
-                  return route.component ? (
-                    <Route
-                      key={idx}
-                      path={route.path}
-                      exact={route.exact}
-                      name={route.name}
-                      render={props => (
+      <HashRouter>
+          <React.Suspense fallback={Loading}>
+            <Switch>
+              {routes.map((route, idx) => {
+                return route.component ? (
+                  <Route
+                    key={idx}
+                    path={route.path}
+                    exact={route.exact}
+                    name={route.name}
+                    render={props => (
+                      <DefaultLayout name={route.name}>
                         <route.component {...props} />
-                      )} />
-                  ) : (null);
-                })}
-                <Redirect from="/" to="/dashboard" />
-              </Switch>
-            </React.Suspense>
-        </HashRouter>
-      </DefaultLayout>
+                      </DefaultLayout>
+                    )} />
+                ) : (null);
+              })}
+              <Redirect from="/" to="/dashboard" />
+            </Switch>
+          </React.Suspense>
+      </HashRouter>
     );
   }
 }

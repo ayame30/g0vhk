@@ -3,6 +3,10 @@ button:focus {
   outline: 1px auto -webkit-focus-ring-color;
   outline: none;
 }
+button {
+  text-align: inherit;
+  padding: initial;
+}
 main {
   height: 100%;
 }
@@ -33,7 +37,7 @@ body {
   font-family: roboto;
   background: #fff;
 }
-div, main {
+div, main, button {
   display: block;
   box-sizing: border-box;
   line-height: 1;
@@ -51,6 +55,10 @@ article {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   line-height: 1.3;
   margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 span, .span, p, .p { font-size: 12px; line-height: 1.3;}
 h1, .h1 { font-size: 24px; }
@@ -163,7 +171,7 @@ hr.vertical {
   display: flex;
   flex-direction: row;
   &.flex-middle {
-    align-content: center;
+    justify-content: center;
   }
   &.flex-top {
     align-content: flex-start;
@@ -202,6 +210,9 @@ hr.vertical {
 .flex-column-parent {
   display: flex;
   flex-direction: column;
+  &.flex-space-between {
+    justify-content: space-between;
+  }
 }
 .overflow-y {
   overflow-y: overlay;

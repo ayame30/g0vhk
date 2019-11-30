@@ -3,7 +3,7 @@ import Sidemenu from './Sidemenu';
 import styles from './index.module.scss';
 // routes config
 
-function DefaultLayout({ children, history }) {
+function DefaultLayout({ children, history, name }) {
   const [ open, setOpen ] = useState(false);
   return (
     <div className={styles.app}>
@@ -16,7 +16,7 @@ function DefaultLayout({ children, history }) {
               <i className="fas fa-times h2 px-3" />
             }
           </button>
-          <span className="h2 px-1">首頁</span>
+          <span className="h2 px-1">{name}</span>
         </div>
       </div>
       <main className="main">

@@ -7,7 +7,7 @@ export const SecondReadStatus = () => (
     <div className="h1">
       <i class="fas fa-check-circle icon-lg" />
     </div>
-    <div className="h3 p1">二讀</div>
+    <div className="h3">二讀</div>
   </div>
 );
 
@@ -18,13 +18,13 @@ export const CardImage = ({ image }) => (
   />
 );
 
-export default ({ children, statusComponent = null }) => (
-  <div className={classnames(styles.card, { [styles.withStatus]: !!statusComponent })}>
+export default ({ children, statusComponent = null, ...props }) => (
+  <button className={classnames(styles.card, { [styles.withStatus]: !!statusComponent })} {...props}>
     {children}
     {statusComponent ? (
       <div className={classnames('flex-row-parent fullheight flex-center flex-middle', styles.status)}>
         {statusComponent}
       </div>
     ): null}
-  </div>
+  </button>
 );
