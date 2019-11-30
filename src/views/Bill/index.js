@@ -1,19 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classnames from 'classnames';
-import Bill from 'components/Bill';
 import Card, { CardImage } from 'components/Card';
 
 import styles from './index.module.scss';
-
-const sampleCard = (
-  <Bill
-    readStatus={2}
-    tags={['長者', '福利']}
-    name="全方位支援 60 歲至 64 歲長者"
-    meetingDate="2019-11-12"
-  />
-);
-
 
 const ReadingStatus = ({ label, active, lastActive }) => (
   <div
@@ -35,15 +24,15 @@ const ReadingStatus = ({ label, active, lastActive }) => (
 const vote = <i className={classnames('fas fa-check-circle', styles.vote)} />;
 
 export default () => {
-  const options = [
-    { label: '全部', value: 'all' },
-    { label: '福利', value: 'bene' },
-    { label: '環保', value: 'env' },
-    { label: '人口', value: 'ppl' },
-    { label: '基建', value: 'facility' },
-    { label: '房屋', value: 'housing' },
-  ];
-  const [ value, setValue ] = useState(options[0].value);
+  // const options = [
+  //   { label: '全部', value: 'all' },
+  //   { label: '福利', value: 'bene' },
+  //   { label: '環保', value: 'env' },
+  //   { label: '人口', value: 'ppl' },
+  //   { label: '基建', value: 'facility' },
+  //   { label: '房屋', value: 'housing' },
+  // ];
+  // const [ value, setValue ] = useState(options[0].value);
   return (
     <div className="p2 overflow-y fullheight">
       <h1><b>全方位支援 60 歲至 64 歲長者</b></h1>
