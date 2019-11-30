@@ -7,5 +7,5 @@ export const Tag = ({ children }) => (
 );
 
 export default ({ list = [] }) => (
-  <div className={styles.tagList}>{list.map(label => <Tag>{label}</Tag>)}</div>
+  <div className={styles.tagList}>{list.map(label => <Tag key={label}>{label}</Tag>)}</div>
 );

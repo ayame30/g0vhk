@@ -18,6 +18,7 @@ export default ({ open, options, value, onChange }) => {
     <div className={classnames('flex-row-parent fullheight multiline flex-top', styles.category, { [styles.open]: open })}>
       {options.map(props => (
         <Category
+          key={props.value}
           {...props}
           active={value === props.value}
           onSelect={onChange}

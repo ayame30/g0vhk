@@ -21,6 +21,7 @@ export default () => {
         <div><span>排序</span><span className="arrow-right" /></div>
         {options.map((opt) => (
           <button
+            key={opt.value}
             className={classnames(styles.sortButton, {[styles.active]: opt.value === sort})}
             onClick={() => setSort(opt.value)}
           >

@@ -10,6 +10,7 @@ export default ({ data, total = 100}) => (
       const percentage = value / total * 100;
       return (
         <div
+          key={value}
           className={styles.bar}
           style={{ width: `${percentage}%`, backgroundColor: color || '#ccc' }}
         />

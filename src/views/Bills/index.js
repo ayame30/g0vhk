@@ -42,7 +42,7 @@ export default () => {
         </div>
         <hr className="vertical ml-1"/>
         <button className="px-2 flex-100" onClick={() => setOpenCategory(prev => !prev)}>
-          {openCategory ? <i class="fas fa-times mr-1" /> : <i class="fas fa-layer-group mr-1" />}
+          {openCategory ? <i className="fas fa-times mr-1" /> : <i className="fas fa-layer-group mr-1" />}
           分類
         </button>
       </div>

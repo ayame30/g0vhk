@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import Card, { CardImage } from 'components/Card';
 import Article from 'components/Article';
-
 import Vote from './Vote';
 
 import styles from './index.module.scss';
@@ -19,7 +18,7 @@ const ReadingStatus = ({ label, active, lastActive }) => (
     )}
   >
     <div className={classnames('h1', styles.icon)}>
-      <i class="fas fa-check-circle icon-lg" />
+      <i className="fas fa-check-circle icon-lg" />
     </div>
     <div className="h3 p1">{label}</div>
   </div>

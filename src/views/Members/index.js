@@ -33,7 +33,7 @@ export default () => {
           </div>
           <div className="p2">
             <button onClick={() => setOpenFilter(prev => !prev)}>
-              <i class="fas fa-filter"></i>
+              <i className="fas fa-filter"></i>
             </button>
           </div>
         </div>

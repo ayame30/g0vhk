@@ -1,23 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classnames from 'classnames';
+import { withRouter } from 'react-router-dom';
+
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Loading from 'components/Loading';
+
 import TabBar from 'components/TabBar';
 import ImageIcon from 'components/ImageIcon';
-import Overview from './Overview';
-import Party from './Party';
-
 import styles from './index.module.scss';
 
-export default () => {
-  const options = [
-    { label: '表現', value: 'overview' },
-    { label: '政黨', value: 'party' },
-    { label: '背景', value: 'background' },
-    { label: '新聞', value: 'news' },
-    { label: '表決', value: 'vote' },
-    { label: '質詢', value: 'question' },
-    { label: '發言', value: 'speech' },
-  ];
-  const [ value, setValue ] = useState(options[0].value);
+const Overview = React.lazy(() => import('./Overview'));
+const Party = React.lazy(() => import('./Party'));
+
+const routes = [
+  { path: '/members/:id/', exact: true, name: '表現', component: Overview },
+  { path: '/members/:id/party', name: '政黨', component: Party },
+];
+
+
+let NewTabBar = ({ history, match }) => {
+  const options = routes.map((route) => ({
+    label: route.name,
+    value: route.path,
+  }))
+  const value = match.path;
+  const onChange = (path) => {
+    history.push(path.replace(':id', match.params.id));
+  }
+  return <TabBar options={options} value={value} onChange={onChange} />;
+}
+NewTabBar = withRouter(NewTabBar);
+
+export default ({ match, history }) => {
   return (
     <div className="flex-column-parent fullheight px-2">
       <div className="flex-row-parent py-2 flex-center">
@@ -35,11 +49,29 @@ export default () => {
           </div>
         </div>
       </div>
-      <TabBar options={options} value={value} onChange={setValue} />
-      <div className="p flex-expand overflow-y">    
-        {value === 'overview'? <Overview /> : null}
-        {value === 'party'? <Party /> : null}
-      </div>
+
+      <React.Suspense fallback={<Loading />}>
+        <Switch>
+          {routes.map((route, idx) => {
+            return route.component ? (
+              <Route
+                key={idx}
+                path={route.path}
+                exact={route.exact}
+                name={route.name}
+                render={props => (
+                  <>
+                    <NewTabBar />
+                    <div className="p flex-expand overflow-y">
+                      <route.component {...props} />
+                    </div>
+                  </>
+                )} />
+            ) : (null);
+          })}
+          <Redirect from="/" to="/dashboard" />
+        </Switch>
+      </React.Suspense>
     </div>
   )
 }

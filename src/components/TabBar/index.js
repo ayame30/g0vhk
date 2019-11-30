@@ -6,6 +6,7 @@ export const Tab = ({ children, active, value, onClick }) => {
   const onChange = () => onClick(value);
   return (
     <button
+      
       onClick={onChange}
       className={classnames(styles.tab, { [styles.active]: active })}
     >
@@ -20,6 +21,7 @@ export default ({ children, options = [], value, onChange }) => {
       <div className={styles.tabBar}>
         {options.map(({ value: thisValue, label }) => (
           <Tab
+            key={thisValue}
             active={thisValue === value }
             value={thisValue}
             onClick={onChange}

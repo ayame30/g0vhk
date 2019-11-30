@@ -5,7 +5,7 @@ import classnames from 'classnames';
 export const SecondReadStatus = () => (
   <div className="flex-self-center">
     <div className="h1">
-      <i class="fas fa-check-circle icon-lg" />
+      <i className="fas fa-check-circle icon-lg" />
     </div>
     <div className="h3">二讀</div>
   </div>
