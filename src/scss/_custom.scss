@@ -1,4 +1,6 @@
 // Here you can add other styles
+@import "scss/_variables.scss";
+
 button:focus {
   outline: 1px auto -webkit-focus-ring-color;
   outline: none;
@@ -36,6 +38,7 @@ hr {
 body {
   font-family: roboto;
   background: #fff;
+  color: $text;
 }
 div, main, button {
   display: block;
@@ -44,7 +47,8 @@ div, main, button {
   position: relative;
 }
 b {
-  font-weight: 700;
+  font-weight: 600;
+  // color: $text-strong;
 }
 p {
   line-height: 1.5;
@@ -240,22 +244,43 @@ hr.vertical {
   vertical-align: middle;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-left: 7px solid #000;
+  border-left: 7px solid $text;
   margin: 0 6px;
+  &.red { border-left-color: $red; }
+  &.green { border-left-color: $green; }
+  
 }
 .arrow-up {
   display: inline-block;
   vertical-align: middle;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-bottom: 7px solid #000;
+  border-bottom: 7px solid $text;
   margin: 0 6px;
+  &.red { border-bottom-color: $red; }
+  &.green { border-bottom-color: $green; }
 }
 .arrow-down {
   display: inline-block;
   vertical-align: middle;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 7px solid #000;
+  border-top: 7px solid $text;
   margin: 0 6px;
+  &.red { border-top-color: $red; }
+  &.green { border-top-color: $green; }
 }
+
+.red { color: $red; }
+.green { color: $green; }
+.yellow { color: $yellow; }
+.grey { color: $grey; }
+.black { color: $black; }
+.weak { color: $text-weaken; }
+.strong { color: $text-strong; } 
+
+.bg-red { background-color: $red; }
+.bg-green { background-color: $green; }
+.bg-yellow { background-color: $yellow; }
+.bg-grey { background-color: $grey; }
+.bg-black { background-color: $black; }

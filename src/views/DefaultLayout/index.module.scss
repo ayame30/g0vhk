@@ -1,29 +1,37 @@
+@import "scss/_variables.scss";
+
+$topbarHeight: 44px;
+$sidemenuWidth: 300px;
+$bg-sidemenu: #282828;
+
 .app {
   height: 100%;
   overflow: hidden;
-  padding-top: 44px;
+  padding-top: $topbarHeight;
 }
+
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 44px;
-  background: #333;
-  color: #fff;
+  height: $topbarHeight;
+  background: #3E3E3E;
+  color: $text-white;
   i {
-    color: #fff;
+    color: $text-white;
   }
 }
+
 .sidemenu {
   position: absolute;
-  left: -300px;
+  left: $sidemenuWidth * -1;
   top: 0;
   height: 100%;
-  width: 300px;
-  background: #2a2a2a;
+  width: $sidemenuWidth;
+  background: $bg-sidemenu;
   z-index: 2;
-  color: #fff;
+  color: $text-white;
   padding: 10px;
   transition: all 0.4s;
   &.open {
@@ -32,10 +40,10 @@
   .input {
     border-radius: 4px;
     padding: 3px 0;
-    background: #fff;
+    background: $bg;
     font-size: 20px;
     i {
-        color: #333;
+        color: $bg-grey3;
     }
   }
 }

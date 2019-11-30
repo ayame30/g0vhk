@@ -36,12 +36,12 @@ export default () => {
   }
   return (
     <div className="flex-column-parent fullheight">
-      <div className="flex-row-parent flex-center p1">
+      <div className="flex-row-parent flex-center px-1">
         <div className="flex-expand overflow-overlay">
           <TabBar options={options} value={value} onChange={setValue} />
         </div>
         <hr className="vertical ml-1"/>
-        <button className="px-2 flex-100" onClick={() => setOpenCategory(prev => !prev)}>
+        <button className="px-2 flex-80 text-center" onClick={() => setOpenCategory(prev => !prev)}>
           {openCategory ? <i className="fas fa-times mr-1" /> : <i className="fas fa-layer-group mr-1" />}
           分類
         </button>

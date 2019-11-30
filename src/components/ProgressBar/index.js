@@ -5,14 +5,14 @@ import classnames from 'classnames';
 
 export default ({ data, total = 100}) => (
   <div className={classnames(styles.progressBar)}>
-    {data.map(({ value, color }) => {
+    {data.map(({ value, color, className }) => {
       if (!value) return null;
       const percentage = value / total * 100;
       return (
         <div
           key={value}
-          className={styles.bar}
-          style={{ width: `${percentage}%`, backgroundColor: color || '#ccc' }}
+          className={classnames(styles.bar, className)}
+          style={{ width: `${percentage}%`}}
         />
       );
     })}

@@ -3,9 +3,9 @@ import classnames from 'classnames';
 
 import styles from './index.module.scss';
 
-const vote = <i className={classnames('fas fa-check-circle', styles.vote)} />;
-const vote2 = <i className={classnames('fas fa-circle', styles.vote)} />;
-const vote3 = <i className={classnames('fas fa-times-circle', styles.vote)} />;
+const vote = <i className={classnames('fas fa-check-circle green', styles.vote)} />;
+const vote2 = <i className={classnames('fas fa-circle grey', styles.vote)} />;
+const vote3 = <i className={classnames('fas fa-times-circle red', styles.vote)} />;
 
 export default () => {
   const options = [
@@ -33,11 +33,11 @@ export default () => {
         <div className="flex-column-parent">
           <div className={classnames('flex-row-parent p2', styles.resultRow)}>
             <div className="flex-100 flex-self-center">表決結果</div>
-            <div className="flex-expand flex-self-center">通過</div>
+            <div className="flex-expand flex-self-center green"><b>通過</b></div>
             <div className="flex-100 flex-self-center"><b>田北辰</b> 主持</div>
           </div>
           <div className={classnames('flex-row-parent p2', styles.resultRow)}>
-            <div className="flex-100 flex-self-center">地區直選</div>
+            <div className="flex-100 flex-self-center green"><b>地區直選</b></div>
             <div className="flex-expand flex-self-center">
               {vote2}{vote3}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}
             </div>
@@ -49,7 +49,7 @@ export default () => {
             </div>
           </div>
           <div className={classnames('flex-row-parent p2', styles.resultRow)}>
-            <div className="flex-100 flex-self-center">功能組別</div>
+            <div className="flex-100 flex-self-center green"><b>功能組別</b></div>
             <div className="flex-expand flex-self-center">
               {vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}
               {vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}
@@ -64,6 +64,11 @@ export default () => {
         </div> : null}
       {sort === 'party' ?
         <div className="flex-column-parent">
+          <div className={classnames('flex-row-parent p2', styles.resultRow)}>
+            <div className="flex-100 flex-self-center">表決結果</div>
+            <div className="flex-expand flex-self-center green"><b>通過</b></div>
+            <div className="flex-100 flex-self-center"><b>田北辰</b> 主持</div>
+          </div>
           <div className={classnames('flex-column-parent p2')}>
             <div className="flex-row-parent py-2">
               <div className="flex-expand flex-self-center">政黨</div>

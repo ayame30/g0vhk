@@ -24,12 +24,12 @@ export default () => {
             <div className="flex-row-parent py-1">
               <span className="flex-100">近月出席率</span>
               <span className="flex-50 text-right">92%</span>
-              <span className="flex-50 text-right">7<i className="arrow-up" /></span>
+              <span className="flex-50 text-right">7<i className="arrow-up green" /></span>
             </div>
             <div className="flex-row-parent py-1">
               <span className="flex-100">近月投票率</span>
               <span className="flex-50 text-right">89%</span>
-              <span className="flex-50 text-right">14<i className="arrow-down" /></span>
+              <span className="flex-50 text-right">14<i className="arrow-down red" /></span>
             </div>
           </div>
           <div className="halfwidth">
@@ -40,20 +40,20 @@ export default () => {
       <Article title="表決次數">
         <div className="flex-row-parent p2">
           <div className="flex-expand text-center">
-            <div className="h1"><b>89</b></div>
-            <small>贊成</small>
+            <div className="h1 green"><b>89</b></div>
+            <small className="green">贊成</small>
           </div>
           <div className="flex-expand text-center">
-            <div className="h1"><b>64</b></div>
-            <small>反對</small>
+            <div className="h1 red"><b>64</b></div>
+            <small className="red">反對</small>
           </div>
           <div className="flex-expand text-center">
-            <div className="h1"><b>3</b></div>
-            <small>棄權</small>
+            <div className="h1 yellow"><b>3</b></div>
+            <small className="yellow">棄權</small>
           </div>
           <div className="flex-expand text-center">
-            <div className="h1"><b>12</b></div>
-            <small>缺席</small>
+            <div className="h1 grey"><b>12</b></div>
+            <small className="grey">缺席</small>
           </div>
           <div className="flex-expand text-center">
             <div className="h1"><b>0</b></div>
@@ -61,43 +61,43 @@ export default () => {
           </div>
         </div>
         <ProgressBar data={[
-          { value: 89, color: 'rgb(31, 191, 66)'},
-          { value: 64, color: 'rgb(205, 26, 26)'},
-          { value: 3, color: 'rgb(172, 163, 30)'},
-          { value: 12, color: 'rgb(106, 106, 106)'},
-          { value: 0, color: '#000'},
+          { value: 89, className: 'bg-green'},
+          { value: 64, className: 'bg-red'},
+          { value: 3, className: 'bg-yellow'},
+          { value: 12, className: 'bg-grey'},
+          { value: 0, className: 'bg-black'},
         ]} total={168}/>
       </Article>
       <Article title="議員關係">
         <div className="flex-row-parent border-bottom my-2">
           <span className="flex-expand">表決意向接近的議員</span>
-          <span className="flex-100 text-right"><b>何君堯 (86%)</b></span>
-          <span className="flex-100 text-right"><b>葛珮帆 (83%)</b></span>
+          <span className="flex-100 text-right green"><b>何君堯 (86%)</b></span>
+          <span className="flex-100 text-right green"><b>葛珮帆 (83%)</b></span>
         </div>
         <div className="flex-row-parent border-bottom my-2">
           <span className="flex-expand">最常支持誰的議案</span>
-          <span className="flex-100 text-right"><b>何君堯 (86%)</b></span>
-          <span className="flex-100 text-right"><b>葛珮帆 (83%)</b></span>
+          <span className="flex-100 text-right green"><b>何君堯 (86%)</b></span>
+          <span className="flex-100 text-right green"><b>葛珮帆 (83%)</b></span>
         </div>
         <div className="flex-row-parent border-bottom my-2">
           <span className="flex-expand">提出的議案最常被誰支持</span>
-          <span className="flex-100 text-right"><b>何君堯 (86%)</b></span>
-          <span className="flex-100 text-right"><b>葛珮帆 (83%)</b></span>
+          <span className="flex-100 text-right green"><b>何君堯 (86%)</b></span>
+          <span className="flex-100 text-right green"><b>葛珮帆 (83%)</b></span>
         </div>
         <div className="flex-row-parent border-bottom my-2">
           <span className="flex-expand">表決意向相反的議員</span>
-          <span className="flex-100 text-right"><b>何君堯 (86%)</b></span>
-          <span className="flex-100 text-right"><b>葛珮帆 (83%)</b></span>
+          <span className="flex-100 text-right red"><b>何君堯 (86%)</b></span>
+          <span className="flex-100 text-right red"><b>葛珮帆 (83%)</b></span>
         </div>
         <div className="flex-row-parent border-bottom my-2">
           <span className="flex-expand">最常反對誰的議案</span>
-          <span className="flex-100 text-right"><b>何君堯 (86%)</b></span>
-          <span className="flex-100 text-right"><b>葛珮帆 (83%)</b></span>
+          <span className="flex-100 text-right red"><b>何君堯 (86%)</b></span>
+          <span className="flex-100 text-right red"><b>葛珮帆 (83%)</b></span>
         </div>
         <div className="flex-row-parent border-bottom my-2">
           <span className="flex-expand">提出的議案最常被誰反對</span>
-          <span className="flex-100 text-right"><b>何君堯 (86%)</b></span>
-          <span className="flex-100 text-right"><b>葛珮帆 (83%)</b></span>
+          <span className="flex-100 text-right red"><b>何君堯 (86%)</b></span>
+          <span className="flex-100 text-right red"><b>葛珮帆 (83%)</b></span>
         </div>          
       </Article>
       <Article title="贊成的法案" onMore={() => {}}>
@@ -110,9 +110,9 @@ export default () => {
         <Card>
           <div className="flex-row-parent">
             <div className="flex-100"><CardImage /></div>
-            <div className="flex-expand pl-1">
+            <div className="flex-expand pl-1 flex-column-parent flex-space-between ">
               <h5>60至64歲長者福利、就業支援「百無」　議員斥港府帶頭虐老促補漏</h5>
-              <div className="flex-row-parent flex-space-between py-1">
+              <div className="flex-row-parent flex-space-between">
                 <span>Flag - 香港01</span>
                 <span>2019-08-28</span>
               </div>
@@ -122,9 +122,9 @@ export default () => {
         <Card>
           <div className="flex-row-parent">
             <div className="flex-100"><CardImage /></div>
-            <div className="flex-expand pl-1">
+            <div className="flex-expand pl-1 flex-column-parent flex-space-between">
               <h5>60至64歲長者福利、就業支援「百無」　議員斥港府帶頭虐老促補漏</h5>
-              <div className="flex-row-parent flex-space-between py-1">
+              <div className="flex-row-parent flex-space-between">
                 <span>Flag - 香港01</span>
                 <span>2019-08-28</span>
               </div>
@@ -134,9 +134,9 @@ export default () => {
         <Card>
           <div className="flex-row-parent">
             <div className="flex-100"><CardImage /></div>
-            <div className="flex-expand pl-1">
+            <div className="flex-expand pl-1 flex-column-parent flex-space-between">
               <h5>60至64歲長者福利、就業支援「百無」　議員斥港府帶頭虐老促補漏</h5>
-              <div className="flex-row-parent flex-space-between py-1">
+              <div className="flex-row-parent flex-space-between">
                 <span>Flag - 香港01</span>
                 <span>2019-08-28</span>
               </div>
@@ -236,7 +236,7 @@ const mainChart = {
     {
       label: '投票率',
       backgroundColor: 'transparent',
-      borderColor: '#000',
+      borderColor: '#B23131',
       pointHoverBackgroundColor: '#fff',
       borderWidth: 2,
       data: data1,
@@ -244,7 +244,7 @@ const mainChart = {
     {
       label: '出席率',
       backgroundColor: 'transparent',
-      borderColor: '#000',
+      borderColor: '#2DA948',
       pointHoverBackgroundColor: '#fff',
       borderWidth: 2,
       data: data2,

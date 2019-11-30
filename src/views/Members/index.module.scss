@@ -1,5 +1,8 @@
 @import "scss/_custom.scss";
-$dark: #444;
+@import "scss/_variables.scss";
+
+$dark: $bg-grey3;
+$width: 200px;
 
 .sortButton {
   border: 1px $dark solid;
@@ -11,10 +14,10 @@ $dark: #444;
 .sidemenu {
   @extend .p2;
   position: absolute;
-  right: -200px;
+  right: $width * -1;
   top: 0;
-  width: 200px;
-  background: #fff;
+  width: $width;
+  background: $bg;
   height: 100%;
   z-index: 1;
   // border-left: 1px #ccc solid;
@@ -25,7 +28,7 @@ $dark: #444;
   }
 }
 .filterButton {
-  border: 1px solid #ccc;
+  border: 1px solid $bg-grey2;
   padding: 3px;
   width: 100%;
 }

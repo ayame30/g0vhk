@@ -1,3 +1,5 @@
+@import "scss/_variables.scss";
+
 .tagList {
   padding: 7px 0;
   padding-top: 0;
@@ -7,6 +9,6 @@
 .tag {
   padding: 3px 5px;
   margin-right: 8px;
-  background: #cfcfcf;
+  background: $bg-grey2;
   border-radius: 6px;
 }

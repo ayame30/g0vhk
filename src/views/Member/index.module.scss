@@ -1,5 +1,7 @@
-$dark: #444;
-$light: #ccc;
+@import "scss/_variables.scss";
+
+$dark: $bg-grey3;
+$light: $bg-grey1;
 $background: #fff;
 
 

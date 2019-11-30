@@ -1,6 +1,8 @@
-$dark: #444;
-$light: #ccc;
-$background: #fff;
+@import "scss/_variables.scss";
+
+$dark: $bg-grey3;
+$light: $bg-grey2;
+$background: $bg;
 .readStatus {
   overflow: visible;
   .icon {
@@ -70,7 +72,7 @@ $background: #fff;
   border-radius: 15px;
   margin: 0 5px;
   &.active {
-    background: #ddd;
+    background: $bg-grey1;
   }
 }
 
@@ -81,7 +83,7 @@ $background: #fff;
   }
 }
 .vote {
-  color: #ccc;
+  // color: $bg-grey2;
   font-size: 14px;
   margin-right: 4px;
   margin-bottom: 4px;
