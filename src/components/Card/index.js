@@ -3,7 +3,7 @@ import styles from './index.module.scss';
 import classnames from 'classnames';
 
 export const SecondReadStatus = () => (
-  <div>
+  <div className="flex-self-center">
     <div className="h1">
       <i class="fas fa-check-circle icon-lg" />
     </div>

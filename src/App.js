@@ -9,12 +9,14 @@ const Homepage = React.lazy(() => import('./views/Homepage'));
 const Bills = React.lazy(() => import('./views/Bills'));
 const Bill = React.lazy(() => import('./views/Bill'));
 const Category = React.lazy(() => import('./views/Category'));
+const Members = React.lazy(() => import('./views/Members'));
 
 const routes = [
   { path: '/', exact: true, name: '主頁', component: Homepage },
   { path: '/bills', name: '議員', component: Bills },
   { path: '/bill', name: '議員', component: Bill },
   { path: '/categories', name: '議員', component: Category },
+  { path: '/members', name: '議員', component: Members },
 
 ];
 

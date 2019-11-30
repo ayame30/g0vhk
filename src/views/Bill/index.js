@@ -59,7 +59,7 @@ export default () => {
       <article>
         <h3><b>二讀表決結果</b></h3>
         <div className="py-2">
-          <div>
+          <div className="py-1">
             <span>排序</span><span className="arrow-right" />
             <button className={styles.sortButton}>按議席</button>
             <button className={styles.sortButton}>按政黨</button>
