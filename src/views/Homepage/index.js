@@ -1,7 +1,6 @@
 import React from 'react';
 import Bill from 'components/Bill';
 import Section from 'components/Section';
-import Heading from 'components/Heading';
 
 const sampleCard = (
   <Bill
@@ -13,31 +12,22 @@ const sampleCard = (
 );
 export default () => {
   return (
-    <div>
-      <Section>
-        <Heading title="熱門法案">
-          <button className="float-right">更多</button>
-        </Heading>
+    <div className="px-1">
+      <Section title="熱門法案" onMore={() => {}}>
         <div>
           {sampleCard}
           {sampleCard}
           {sampleCard}
         </div>
       </Section>
-      <Section>
-        <Heading title="即將表決法案">
-          <button className="float-right">更多</button>
-        </Heading>
+      <Section title="即將表決法案" onMore={() => {}}>
         <div>
           {sampleCard}
           {sampleCard}
           {sampleCard}
         </div>
       </Section>
-      <Section>
-        <Heading title="最近表決法案">
-          <button className="float-right">更多</button>
-        </Heading>
+      <Section title="最近表決法案" onMore={() => {}}>
         <div>
           {sampleCard}
           {sampleCard}
