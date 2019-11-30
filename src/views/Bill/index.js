@@ -52,9 +52,9 @@ export default () => {
         <Card>
           <div className="flex-row-parent">
             <div className="flex-100"><CardImage /></div>
-            <div className="flex-expand pl-1">
+            <div className="flex-expand flex-column-parent flex-space-between pl-1">
               <h5>60至64歲長者福利、就業支援「百無」　議員斥港府帶頭虐老促補漏</h5>
-              <div className="flex-expand flex-column-parent flex-space-between pl-1">
+              <div className="flex-row-parent flex-space-between py-1">
                 <span>Flag - 香港01</span>
                 <span>2019-08-28</span>
               </div>
