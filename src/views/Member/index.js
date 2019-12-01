@@ -33,8 +33,8 @@ NewTabBar = withRouter(NewTabBar);
 
 export default ({ match, history }) => {
   return (
-    <div className="flex-column-parent fullheight px-2">
-      <div className="flex-row-parent py-2 flex-center">
+    <div className="flex-column-parent fullheight">
+      <div className="flex-row-parent py-2 flex-center px-2">
         <ImageIcon />
         <div className="flex-expand px-2">
           <h3 className=""><b>田北辰</b></h3>
@@ -62,7 +62,7 @@ export default ({ match, history }) => {
                 render={props => (
                   <>
                     <NewTabBar />
-                    <div className="p flex-expand overflow-y">
+                    <div className="p flex-expand overflow-y ">
                       <route.component {...props} />
                     </div>
                   </>

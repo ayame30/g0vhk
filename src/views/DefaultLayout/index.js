@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Sidemenu from './Sidemenu';
+import classnames from 'classnames';
 import styles from './index.module.scss';
 // routes config
 
@@ -20,8 +21,10 @@ function DefaultLayout({ children, history, name }) {
         </div>
       </div>
       <main className="main">
-        <Sidemenu open={open}/>
-        {children}
+        <Sidemenu open={open} onClose={() => setOpen(false)}/>
+        <div className={classnames(styles.children, {[styles.whenSidemenuOpen]: open})}>
+          {children}
+        </div>
       </main>
     </div>
   );

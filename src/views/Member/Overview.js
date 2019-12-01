@@ -22,13 +22,13 @@ export default () => {
         <div className="flex-row-parent">
           <div className="halfwidth p1">
             <div className="flex-row-parent py-1">
-              <span className="flex-100">近月出席率</span>
-              <span className="flex-50 text-right">92%</span>
+              <span className="flex-expand">近月出席率</span>
+              <span className="flex-expand text-right">92%</span>
               <span className="flex-50 text-right">7<i className="arrow-up green" /></span>
             </div>
             <div className="flex-row-parent py-1">
-              <span className="flex-100">近月投票率</span>
-              <span className="flex-50 text-right">89%</span>
+              <span className="flex-expand">近月投票率</span>
+              <span className="flex-expand text-right">89%</span>
               <span className="flex-50 text-right">14<i className="arrow-down red" /></span>
             </div>
           </div>

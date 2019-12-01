@@ -26,7 +26,7 @@ const ReadingStatus = ({ label, active, lastActive }) => (
 
 export default () => {
   return (
-    <div className="p2 overflow-y fullheight">
+    <div className="p3 overflow-y fullheight">
       <h1><b>全方位支援 60 歲至 64 歲長者</b></h1>
       <h5 className="py-1"><b>田北辰</b> 提交的議案</h5>
       

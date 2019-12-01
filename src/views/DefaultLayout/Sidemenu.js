@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { withRouter } from 'react-router-dom';
 import styles from './index.module.scss';
 
-const Sidemenu = ({ open, history }) => {
+const Sidemenu = ({ open, history, onClose }) => {
   const [ search, setSearch ] = useState('');
   const navItems = [
     { label: '首頁', icon: 'fas fa-home', href: '/' },
@@ -16,18 +16,21 @@ const Sidemenu = ({ open, history }) => {
     history.push(url);
   }
   return (
-      <div className={classnames(styles.sidemenu, {[styles.open]: open})}>
-        <div className={classnames(styles.input, 'flex-row-parent flex-center')}>
-          <i className="fas fa-search p2 flex-50 text-center"></i>
-          <input placeholder="議員／議案" value={search} onChange={(e) => setSearch(e.target.value)}/>
-        </div>
-        <div className={classnames(styles.menu, 'py-2')}>
-          {navItems.map((item) => (
-            <button key={item.href} className="fullwidth flex-row-parent flex-center h3" onClick={gotoFn(item.href)}>
-              <div className="p2 flex-50 text-center"><i className={item.icon} /></div>
-              <div>{item.label}</div>
-            </button>
-          ))}
+      <div className={classnames(styles.sidemenuContainer, {[styles.open]: open})}>
+        <button className={styles.overlay} onClick={onClose}/>
+        <div className={classnames(styles.sidemenu, {[styles.open]: open})}>
+          <div className={classnames(styles.input, 'flex-row-parent flex-center')}>
+            <i className="fas fa-search p2 flex-50 text-center"></i>
+            <input placeholder="議員／議案" value={search} onChange={(e) => setSearch(e.target.value)}/>
+          </div>
+          <div className={classnames(styles.menu, 'py-2')}>
+            {navItems.map((item) => (
+              <button key={item.href} className="fullwidth flex-row-parent flex-center h3" onClick={gotoFn(item.href)}>
+                <div className="p2 flex-50 text-center"><i className={item.icon} /></div>
+                <div>{item.label}</div>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
   );

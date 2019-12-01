@@ -113,6 +113,15 @@ small {
 .p2 {
   padding: 10px;
 }
+.p3 {
+  padding: 15px;
+}
+.pt-1 {
+  padding-top: 5px;
+}
+.pt-2 {
+  padding-top: 10px;
+}
 .pr-1 {
   padding-right: 5px;
 }
@@ -209,6 +218,9 @@ hr.vertical {
   }
   .flex-50 {
     flex: 0 0 50px;
+  }
+  .flex-40 {
+    flex: 0 0 40px;
   }
   .flex-30 {
     flex: 0 0 30px;

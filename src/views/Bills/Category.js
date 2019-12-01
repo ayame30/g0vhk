@@ -15,15 +15,17 @@ export const Category = ({ label, value, image, active, onSelect }) => {
 
 export default ({ open, options, value, onChange }) => {
   return (
-    <div className={classnames('flex-row-parent fullheight multiline flex-top', styles.category, { [styles.open]: open })}>
-      {options.map(props => (
-        <Category
-          key={props.value}
-          {...props}
-          active={value === props.value}
-          onSelect={onChange}
-        />
-      ))}
+    <div className={classnames(styles.categoryContainer, { [styles.active]: open })}>
+      <div className={classnames('flex-row-parent fullheight multiline flex-top', styles.category, { [styles.active]: open })}>
+        {options.map(props => (
+          <Category
+            key={props.value}
+            {...props}
+            active={value === props.value}
+            onSelect={onChange}
+          />
+        ))}
+      </div>
     </div>
   );
 }

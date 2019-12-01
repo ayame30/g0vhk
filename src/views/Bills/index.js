@@ -1,26 +1,12 @@
 import React, { useState } from 'react';
 import TabBar from 'components/TabBar';
-import Bill from 'components/Bill';
 import Category from './Category';
+import Swipe from './Swipe';
+import styles from './index.module.scss';
 
-const sampleCard = (
-  <Bill
-    id={123}
-    readStatus={2}
-    tags={['長者', '福利']}
-    name="全方位支援 60 歲至 64 歲長者"
-    meetingDate="2019-11-12"
-  />
-);
 
 export default () => {
   const options = [
-    { label: '全部', value: 'all' },
-    { label: '福利', value: 'bene' },
-    { label: '環保', value: 'env' },
-    { label: '人口', value: 'ppl' },
-    { label: '基建', value: 'facility' },
-    { label: '房屋', value: 'housing' },
     { label: '全部', value: 'all' },
     { label: '福利', value: 'bene' },
     { label: '環保', value: 'env' },
@@ -34,11 +20,16 @@ export default () => {
     setValue(value);
     setOpenCategory(false);
   }
+  const onSwipe = (i) => {
+    setValue(options[i].value);
+  }
+  const i = options.map(o => o.value).indexOf(value);
+  
   return (
     <div className="flex-column-parent fullheight">
-      <div className="flex-row-parent flex-center px-1">
+      <div className="flex-row-parent flex-center px-1 pt-2">
         <div className="flex-expand overflow-overlay">
-          <TabBar options={options} value={value} onChange={setValue} />
+          <TabBar options={options} value={value} onChange={onCategoryChange} />
         </div>
         <hr className="vertical ml-1"/>
         <button className="px-2 flex-80 text-center" onClick={() => setOpenCategory(prev => !prev)}>
@@ -46,18 +37,14 @@ export default () => {
           分類
         </button>
       </div>
-      <div className="p2 flex-expand overflow-y">
+      <div className="flex-expand overflow-y">
         <Category open={openCategory} value={value} options={options} onChange={onCategoryChange}/>
-          {sampleCard}
-          {sampleCard}
-          {sampleCard}
-          {sampleCard}
-          {sampleCard}
-          {sampleCard}
-          {sampleCard}
-          {sampleCard}
-          {sampleCard}
-          {sampleCard}
+        <div className={styles.swipeContainer}>
+          <Swipe
+            index={i}
+            onChange={onSwipe}
+          />
+        </div>
       </div>
     </div>
     

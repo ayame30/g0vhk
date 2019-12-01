@@ -23,6 +23,30 @@ $bg-sidemenu: #282828;
   }
 }
 
+.sidemenuContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  z-index: 2;
+  &.open {
+    width: 100%;
+    .overlay {
+      opacity: 1;
+    }
+  }
+  .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: all 0.4s;
+  }
+}
 .sidemenu {
   position: absolute;
   left: $sidemenuWidth * -1;
@@ -49,4 +73,12 @@ $bg-sidemenu: #282828;
 }
 .menu button{
   color: #fff;
+}
+
+.children {
+  height: 100%;
+  width: 100%;
+}
+.whenSidemenuOpen {
+  pointer-events: none;
 }
