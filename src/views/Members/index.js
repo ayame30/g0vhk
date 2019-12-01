@@ -31,11 +31,9 @@ export default () => {
             <button className={styles.sortButton}>近月投票率</button>
             <button className={styles.sortButton}>近月出席率</button>
           </div>
-          <div className="p2">
             <button onClick={() => setOpenFilter(prev => !prev)} className="p2">
               <i className="fas fa-filter"></i>
             </button>
-          </div>
         </div>
         <div className="flex-expand fullheight">
           <div className={classnames(styles.sidemenuContainer,{ [styles.active]: openFilter })}>

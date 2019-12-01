@@ -10,7 +10,7 @@ const News = ({ title, source, date, image, url }) => (
       <div className="flex-100"><CardImage image={image} /></div>
       <div className="flex-expand flex-column-parent flex-space-between pl-1">
         <span className="h6">{title}</span>
-        <div className="flex-row-parent flex-space-between py-1">
+        <div className="flex-row-parent flex-space-between pt-1">
           <span>Flag - 香港01</span>
           <span>{date}</span>
         </div>

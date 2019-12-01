@@ -43,6 +43,7 @@ export default () => {
           <Swipe
             index={i}
             onChange={onSwipe}
+            categories={options}
           />
         </div>
       </div>

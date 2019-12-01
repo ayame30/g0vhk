@@ -3,17 +3,58 @@ import classnames from 'classnames';
 
 import styles from './index.module.scss';
 
-const vote = <i className={classnames('fas fa-check-circle green', styles.vote)} />;
-const vote2 = <i className={classnames('fas fa-circle grey', styles.vote)} />;
-const vote3 = <i className={classnames('fas fa-times-circle red', styles.vote)} />;
+const Vote1 = <i className={classnames('fas fa-check-circle green', styles.vote)} />;
+const Vote2 = <i className={classnames('fas fa-times-circle red', styles.vote)} />;
+const Vote3 = <i className={classnames('fas fa-circle grey', styles.vote)} />;
 
-export default () => {
+export default ({ data }) => {
   const options = [
     { label: '按議席', value: 'constituency'},
     { label: '按政黨', value: 'party'},
   ]
   const [ sort, setSort ] = useState(options[0].value);
 
+  const hostBlock = (
+    <div className={classnames('flex-row-parent p2', styles.resultRow)}>
+      <div className="flex-100 flex-self-center">表決結果</div>
+      <div className="flex-expand flex-self-center green"><b>通過</b></div>
+      <div className="flex-100 flex-self-center"><b>{data.host.name}</b> 主持</div>
+    </div>
+  );
+  
+  const byParty = {};
+  const byConstituencyType = {
+    G: {
+      name: '地區直選',
+      agree: 0,
+      against: 0,
+      absent: 0,
+      abstain: 0,
+    },
+    F: {
+      name: '功能組別',
+      agree: 0,
+      against: 0,
+      absent: 0,
+      abstain: 0,
+    },
+  };
+  data.vote.forEach(vote => {
+    if (!byParty[vote.party.id]) {
+      byParty[vote.party.id] = {
+        name: vote.party.name,
+        agree: 0,
+        against: 0,
+        absent: 0,
+        abstain: 0,
+      };
+    }
+    byParty[vote.party.id][vote.decision]++;
+    byConstituencyType[vote.constituencyType][vote.decision]++;
+  });
+  
+  console.log(byParty);
+  console.log(byConstituencyType);
   
   return (
     <div>
@@ -31,44 +72,27 @@ export default () => {
       </div>
       {sort === 'constituency' ?
         <div className="flex-column-parent">
-          <div className={classnames('flex-row-parent p2', styles.resultRow)}>
-            <div className="flex-100 flex-self-center">表決結果</div>
-            <div className="flex-expand flex-self-center green"><b>通過</b></div>
-            <div className="flex-100 flex-self-center"><b>田北辰</b> 主持</div>
-          </div>
-          <div className={classnames('flex-row-parent p2', styles.resultRow)}>
-            <div className="flex-100 flex-self-center green"><b>地區直選</b></div>
-            <div className="flex-expand flex-self-center">
-              {vote2}{vote3}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}
+          {hostBlock}
+          {Object.values(byConstituencyType).map((cResult) => (
+            <div className={classnames('flex-row-parent p2', styles.resultRow)}>
+              <div className="flex-100 flex-self-center green"><b>{cResult.name}</b></div>
+              <div className="flex-expand flex-self-center">
+                {new Array(cResult.agree).fill(0).map(() => Vote1)}
+                {new Array(cResult.against).fill(0).map(() => Vote2)}
+                {new Array(cResult.abstain).fill(0).map(() => Vote3)}
+              </div>
+              <div className="flex-100 flex-row-parent multiline flex-self-center">
+                <span>{cResult.agree} 贊成</span>
+                <span>{cResult.against} 反對</span>
+                <span>{cResult.abstain} 棄權</span>
+                <span>{cResult.absent} 缺席</span>
+              </div>
             </div>
-            <div className="flex-100 flex-row-parent multiline flex-self-center">
-              <span>21 贊成</span>
-              <span>21 贊成</span>
-              <span>21 贊成</span>
-              <span>21 贊成</span>
-            </div>
-          </div>
-          <div className={classnames('flex-row-parent p2', styles.resultRow)}>
-            <div className="flex-100 flex-self-center green"><b>功能組別</b></div>
-            <div className="flex-expand flex-self-center">
-              {vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}
-              {vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}{vote}
-            </div>
-            <div className="flex-100 flex-row-parent multiline flex-self-center">
-              <span>21 贊成</span>
-              <span>21 贊成</span>
-              <span>21 贊成</span>
-              <span>21 贊成</span>
-            </div>
-          </div>
+          ))}
         </div> : null}
       {sort === 'party' ?
         <div className="flex-column-parent">
-          <div className={classnames('flex-row-parent p2', styles.resultRow)}>
-            <div className="flex-100 flex-self-center">表決結果</div>
-            <div className="flex-expand flex-self-center green"><b>通過</b></div>
-            <div className="flex-100 flex-self-center"><b>田北辰</b> 主持</div>
-          </div>
+          {hostBlock}
           <div className={classnames('flex-column-parent p2')}>
             <div className="flex-row-parent py-2">
               <div className="flex-expand flex-self-center">政黨</div>
@@ -77,42 +101,15 @@ export default () => {
               <div className="flex-50 text-center">棄權</div>
               <div className="flex-50 text-center">缺席</div>
             </div>
-            <div className="flex-row-parent py-2">
-              <div className="flex-expand flex-self-center">民主黨</div>
-              <div className="flex-50 text-center">5</div>
-              <div className="flex-50 text-center">0</div>
-              <div className="flex-50 text-center">0</div>
-              <div className="flex-50 text-center">2</div>
-            </div>
-            <div className="flex-row-parent py-2">
-              <div className="flex-expand flex-self-center">自由黨</div>
-              <div className="flex-50 text-center">4</div>
-              <div className="flex-50 text-center">0</div>
-              <div className="flex-50 text-center">0</div>
-              <div className="flex-50 text-center">0</div>
-            </div>
-            <div className="flex-row-parent py-2">
-              <div className="flex-expand flex-self-center">民建聯</div>
-              <div className="flex-50 text-center">3</div>
-              <div className="flex-50 text-center">2</div>
-              <div className="flex-50 text-center">2</div>
-              <div className="flex-50 text-center">2</div>
-            </div>
-            <div className="flex-row-parent py-2">
-              <div className="flex-expand flex-self-center">街工</div>
-              <div className="flex-50 text-center">2</div>
-              <div className="flex-50 text-center">0</div>
-              <div className="flex-50 text-center">0</div>
-              <div className="flex-50 text-center">2</div>
-            </div>
-            <div className="flex-row-parent py-2">
-              <div className="flex-expand flex-self-center">人民力量</div>
-              <div className="flex-50 text-center">0</div>
-              <div className="flex-50 text-center">4</div>
-              <div className="flex-50 text-center">4</div>
-              <div className="flex-50 text-center">0</div>
-            </div>
-              
+            {Object.values(byParty).map((partyResult) => (
+              <div className="flex-row-parent py-2">
+                <div className="flex-expand flex-self-center">{partyResult.name}</div>
+                <div className="flex-50 text-center">{partyResult.agree}</div>
+                <div className="flex-50 text-center">{partyResult.against}</div>
+                <div className="flex-50 text-center">{partyResult.abstain}</div>
+                <div className="flex-50 text-center">{partyResult.absent}</div>
+              </div>
+            ))}
           </div>
         </div> : null}
     </div>

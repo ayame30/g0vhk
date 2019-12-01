@@ -14,7 +14,7 @@ export const SecondReadStatus = () => (
 export const CardImage = ({ image }) => (
   <div
     className={classnames(styles.cardImage)}
-    styles={{ backgroundImage: image }}
+    style={{ backgroundImage: `url(${image})` }}
   />
 );
 
