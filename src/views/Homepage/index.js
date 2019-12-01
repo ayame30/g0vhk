@@ -12,7 +12,7 @@ const sampleCard = (
 );
 export default () => {
   return (
-    <div className="px-1">
+    <div className="fullheight overflow-overlay">
       <Section title="熱門法案" onMore={() => {}}>
         <div>
           {sampleCard}

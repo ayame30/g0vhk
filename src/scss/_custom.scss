@@ -113,6 +113,12 @@ small {
 .p2 {
   padding: 10px;
 }
+.pr-1 {
+  padding-right: 5px;
+}
+.pr-2 {
+  padding-right: 10px;
+}
 .py-1 {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -221,8 +227,14 @@ hr.vertical {
 .overflow-y {
   overflow-y: overlay;
 }
+.overflow-x {
+  overflow-y: overlay;
+}
 .overflow-overlay {
   overflow: overlay;
+}
+.nowrap {
+  white-space: nowrap;
 }
 .inline-block-conatiner {
   font-size: 0;

@@ -8,7 +8,7 @@ export const Tab = ({ children, active, value, onClick }) => {
     <button
       
       onClick={onChange}
-      className={classnames(styles.tab, { [styles.active]: active })}
+      className={classnames(styles.tab, 'nowrap', { [styles.active]: active })}
     >
       {children}
     </button>

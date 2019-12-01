@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
-import Card, { CardImage } from 'components/Card';
 import Article from 'components/Article';
 import Vote from './Vote';
+import News from './News';
 
 import styles from './index.module.scss';
 
@@ -49,42 +49,7 @@ export default () => {
       </Article>
       
       <Article title="相關新聞" onMore={() => {}}>
-        <Card>
-          <div className="flex-row-parent">
-            <div className="flex-100"><CardImage /></div>
-            <div className="flex-expand flex-column-parent flex-space-between pl-1">
-              <h5>60至64歲長者福利、就業支援「百無」　議員斥港府帶頭虐老促補漏</h5>
-              <div className="flex-row-parent flex-space-between py-1">
-                <span>Flag - 香港01</span>
-                <span>2019-08-28</span>
-              </div>
-            </div>
-          </div>
-        </Card>
-        <Card>
-          <div className="flex-row-parent">
-            <div className="flex-100"><CardImage /></div>
-            <div className="flex-expand flex-column-parent flex-space-between pl-1">
-              <h5>60至64歲長者福利、就業支援「百無」　議員斥港府帶頭虐老促補漏</h5>
-              <div className="flex-row-parent flex-space-between py-1">
-                <span>Flag - 香港01</span>
-                <span>2019-08-28</span>
-              </div>
-            </div>
-          </div>
-        </Card>
-        <Card>
-          <div className="flex-row-parent">
-            <div className="flex-100"><CardImage /></div>
-            <div className="flex-expand flex-column-parent flex-space-between pl-1">
-              <h5>60至64歲長者福利、就業支援「百無」　議員斥港府帶頭虐老促補漏</h5>
-              <div className="flex-row-parent flex-space-between py-1">
-                <span>Flag - 香港01</span>
-                <span>2019-08-28</span>
-              </div>
-            </div>
-          </div>
-        </Card>
+        <News />
       </Article>
       
       <Article title="質詢紀錄" onMore={() => {}}>
